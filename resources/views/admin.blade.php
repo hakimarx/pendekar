@@ -121,6 +121,38 @@
                             </tbody>
                         </table>
                     </div>
+                    <!-- Pagination -->
+                    <?php if (($totalPages ?? 1) > 1): ?>
+                    <div style="display: flex; justify-content: center; gap: 5px; margin-top: 15px; flex-wrap: wrap;">
+                        <?php 
+                        $cp = $currentPage ?? 1;
+                        $tp = $totalPages ?? 1;
+                        $q = $_GET;
+                        
+                        if ($cp > 1) {
+                            $q['page'] = $cp - 1;
+                            echo '<a href="?'.http_build_query($q).'" style="padding: 4px 8px; border: 1px solid #00A896; border-radius: 4px; color: #00A896; text-decoration: none; font-size: 0.8rem;">&laquo; Prev</a>';
+                        }
+                        
+                        $start = max(1, $cp - 2);
+                        $end = min($tp, $cp + 2);
+                        if ($start > 1) echo '<span style="padding: 4px; font-size: 0.8rem;">...</span>';
+                        
+                        for ($i = $start; $i <= $end; $i++) {
+                            $q['page'] = $i;
+                            $activeStyle = $i == $cp ? 'background: #00A896; color: white; border: 1px solid #00A896;' : 'color: #00A896; border: 1px solid #00A896;';
+                            echo '<a href="?'.http_build_query($q).'" style="padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; ' . $activeStyle . '">' . $i . '</a>';
+                        }
+                        
+                        if ($end < $tp) echo '<span style="padding: 4px; font-size: 0.8rem;">...</span>';
+                        
+                        if ($cp < $tp) {
+                            $q['page'] = $cp + 1;
+                            echo '<a href="?'.http_build_query($q).'" style="padding: 4px 8px; border: 1px solid #00A896; border-radius: 4px; color: #00A896; text-decoration: none; font-size: 0.8rem;">Next &raquo;</a>';
+                        }
+                        ?>
+                    </div>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
 

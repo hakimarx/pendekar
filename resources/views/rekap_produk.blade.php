@@ -14,10 +14,14 @@
                     <span style="background: rgba(0, 168, 150, 0.1); color: #008080; padding: 6px 14px; border-radius: 20px; font-weight: 600; font-size: 0.88rem; margin-right: 10px;">
                         Total: <?php echo number_format($paginated['totalRecords'] ?? 0); ?> Produk
                     </span>
-                    <a href="/pendataan" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambah Produk</a>
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                        <a href="/admin/create" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambah Produk</a>
+                    <?php else: ?>
+                        <a href="/pendataan?kategori=produk" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambah Produk</a>
+                    <?php endif; ?>
                 </div>
             </div>
-
+ 
             
             <form method="GET" action="" style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
                 <input type="text" name="search" placeholder="Cari nama, nspp, judul..." value="<?php echo $paginated['search'] ?? ''; ?>" style="flex: 1; min-width: 200px; padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px;">
@@ -29,7 +33,7 @@
                 </select>
                 <button type="submit" class="btn-primary" style="padding: 8px 20px; border: none; cursor: pointer;"><i class="fas fa-search"></i> Filter</button>
             </form>
-
+ 
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -42,6 +46,9 @@
                             <th><?php echo $paginated['sortLink']('deskripsi', 'Deskripsi Produk'); ?></th>
                             <th><?php echo $paginated['sortLink']('kategori', 'Kategori / Tahun'); ?></th>
                             <th><?php echo $paginated['sortLink']('kontak', 'Kontak / Telepon'); ?></th>
+                            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                                <th>Aksi</th>
+                            <?php endif; ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,6 +87,19 @@
                                             <span style="color: #94A3B8;">-</span>
                                         <?php endif; ?>
                                     </td>
+                                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                                        <td style="white-space: nowrap;">
+                                            <a href="/admin/edit?id=<?php echo $item['id']; ?>" class="btn-primary" style="background-color: #3B82F6; border-color: #3B82F6; padding: 4px 8px; font-size: 0.75rem; text-decoration: none; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px;">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <form action="/admin/delete" method="POST" style="display: inline-block; margin-left: 5px;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                                <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
+                                                <button type="submit" class="btn-primary" style="background-color: #EF4444; border-color: #EF4444; padding: 4px 8px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; border: none; color: white;">
+                                                    <i class="fas fa-trash"></i> Hapus
+                                                </button>
+                                            </form>
+                                        </td>
+                                    <?php endif; ?>
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>

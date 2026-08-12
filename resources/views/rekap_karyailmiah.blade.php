@@ -14,7 +14,11 @@
                     <span style="background: rgba(0, 168, 150, 0.1); color: #008080; padding: 6px 14px; border-radius: 20px; font-weight: 600; font-size: 0.88rem; margin-right: 10px;">
                         Total: <?php echo number_format($paginated['totalRecords'] ?? 0); ?> Karya/Kitab
                     </span>
-                    <a href="/pendataan" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambah Karya/Kitab</a>
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                        <a href="/admin/create" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambah Karya/Kitab</a>
+                    <?php else: ?>
+                        <a href="/pendataan?kategori=karya" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambah Karya/Kitab</a>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -41,6 +45,9 @@
                             <th><?php echo $paginated['sortLink']('deskripsi', 'Deskripsi Ringkas'); ?></th>
                             <th><?php echo $paginated['sortLink']('tahun', 'Spesifikasi & Penerbit'); ?></th>
                             <th><?php echo $paginated['sortLink']('tautan', 'Akses / Tautan'); ?></th>
+                            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                                <th>Aksi</th>
+                            <?php endif; ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,19 +66,17 @@
                                         <br>
                                         <small style="color: #64748B;"><?php echo htmlspecialchars($item['kabupaten']); ?></small>
                                     </td>
-                                    <td style="color: #2D5D7C; font-weight: 500; font-size: 0.88rem;">
-                                        <i class="fas fa-feather-pointed" style="color: #00A896;"></i> <?php echo htmlspecialchars($item['penulis']); ?>
-                                    </td>
-                                    <td style="max-width: 260px; font-size: 0.82rem; color: #475569;">
-                                        <?php echo htmlspecialchars($item['deskripsi']); ?>
-                                    </td>
-                                    <td style="font-size: 0.8rem; color: #64748B;">
-                                        <strong>Tahun:</strong> <?php echo htmlspecialchars($item['tahun']); ?><br>
-                                        <?php if (!empty($item['halaman']) && $item['halaman'] !== '-'): ?>
-                                            <strong>Halaman:</strong> <?php echo htmlspecialchars($item['halaman']); ?><br>
-                                        <?php endif; ?>
+                                    <td><strong><?php echo htmlspecialchars($item['penulis']); ?></strong></td>
+                                    <td style="max-width: 250px; font-size: 0.85rem; color: #475569;"><?php echo htmlspecialchars($item['deskripsi']); ?></td>
+                                    <td style="font-size: 0.82rem; color: #475569;">
                                         <?php if (!empty($item['isbn']) && $item['isbn'] !== '-'): ?>
                                             <strong>ISBN:</strong> <?php echo htmlspecialchars($item['isbn']); ?><br>
+                                        <?php endif; ?>
+                                        <?php if (!empty($item['tahun']) && $item['tahun'] !== '-'): ?>
+                                            <strong>Tahun:</strong> <?php echo htmlspecialchars($item['tahun']); ?><br>
+                                        <?php endif; ?>
+                                        <?php if (!empty($item['halaman']) && $item['halaman'] !== '-'): ?>
+                                            <strong>Halaman:</strong> <?php echo htmlspecialchars($item['halaman']); ?> hal (<?php echo htmlspecialchars($item['jilid']); ?> jilid)<br>
                                         <?php endif; ?>
                                         <?php if (!empty($item['penerbit']) && $item['penerbit'] !== '-'): ?>
                                             <strong>Penerbit:</strong> <?php echo htmlspecialchars($item['penerbit']); ?>
@@ -90,6 +95,19 @@
                                             </a>
                                         <?php endif; ?>
                                     </td>
+                                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                                        <td style="white-space: nowrap;">
+                                            <a href="/admin/edit?id=<?php echo $item['id']; ?>" class="btn-primary" style="background-color: #3B82F6; border-color: #3B82F6; padding: 4px 8px; font-size: 0.75rem; text-decoration: none; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px;">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <form action="/admin/delete" method="POST" style="display: inline-block; margin-left: 5px;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                                <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
+                                                <button type="submit" class="btn-primary" style="background-color: #EF4444; border-color: #EF4444; padding: 4px 8px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; border: none; color: white;">
+                                                    <i class="fas fa-trash"></i> Hapus
+                                                </button>
+                                            </form>
+                                        </td>
+                                    <?php endif; ?>
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>

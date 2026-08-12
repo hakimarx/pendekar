@@ -18,8 +18,20 @@ class AdminController
         try {
             $pdo = \App\Database::getInstance()->getConnection();
             
-            // Get submissions list
-            $stmt = $pdo->prepare("SELECT * FROM submissions ORDER BY created_at DESC");
+            // Get total count of submissions
+            $countStmt = $pdo->query("SELECT COUNT(id) FROM submissions");
+            $totalSubmissions = $countStmt->fetchColumn();
+
+            // Pagination parameters
+            $page = max(1, intval($_GET['page'] ?? 1));
+            $limit = 50;
+            $offset = ($page - 1) * $limit;
+            $totalPages = max(1, ceil($totalSubmissions / $limit));
+
+            // Get submissions list paginated
+            $stmt = $pdo->prepare("SELECT * FROM submissions ORDER BY created_at DESC LIMIT :limit OFFSET :offset");
+            $stmt->bindValue(':limit', $limit, \PDO::PARAM_INT);
+            $stmt->bindValue(':offset', $offset, \PDO::PARAM_INT);
             $stmt->execute();
             $submissions = $stmt->fetchAll() ?: [];
 
@@ -28,23 +40,19 @@ class AdminController
             $stmtUsers->execute();
             $users = $stmtUsers->fetchAll() ?: [];
 
-            // Compute statistics
+            // Compute statistics efficiently via DB queries
             $stats = [
-                'total' => count($submissions),
-                'pending' => 0,
-                'approved' => 0,
-                'rejected' => 0
+                'total' => $totalSubmissions,
+                'pending' => $pdo->query("SELECT COUNT(id) FROM submissions WHERE status = 'pending'")->fetchColumn(),
+                'approved' => $pdo->query("SELECT COUNT(id) FROM submissions WHERE status = 'approved'")->fetchColumn(),
+                'rejected' => $pdo->query("SELECT COUNT(id) FROM submissions WHERE status = 'rejected'")->fetchColumn()
             ];
-
-            foreach ($submissions as $sub) {
-                if ($sub['status'] === 'pending') $stats['pending']++;
-                elseif ($sub['status'] === 'approved') $stats['approved']++;
-                elseif ($sub['status'] === 'rejected') $stats['rejected']++;
-            }
         } catch (\PDOException $e) {
             $submissions = [];
             $users = [];
             $stats = ['total' => 0, 'pending' => 0, 'approved' => 0, 'rejected' => 0];
+            $totalPages = 1;
+            $page = 1;
             $error = "Terjadi kesalahan database: " . $e->getMessage();
         }
 
@@ -53,6 +61,8 @@ class AdminController
             'submissions' => $submissions,
             'users' => $users,
             'stats' => $stats,
+            'currentPage' => $page,
+            'totalPages' => $totalPages,
             'error' => $error ?? null
         ]);
     }

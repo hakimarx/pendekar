@@ -101,5 +101,127 @@ class Database
                 ]);
             }
         }
+
+        // Seed submissions from JSON & CSV if empty
+        $stmtSub = $this->pdo->query("SELECT COUNT(id) FROM submissions");
+        $subCount = $stmtSub->fetchColumn();
+
+        if ($subCount == 0) {
+            // 1. Seed from JSON
+            $dataPath = __DIR__ . '/../public/data/pesantren_integrated.json';
+            if (!file_exists($dataPath)) {
+                $dataPath = __DIR__ . '/../data/merged_pesantren_data.json';
+            }
+            if (file_exists($dataPath)) {
+                $json = file_get_contents($dataPath);
+                $data = json_decode($json, true);
+                if (is_array($data)) {
+                    $insertStmt = $this->pdo->prepare("INSERT INTO submissions (nama_pesantren, nspp, kabupaten, kategori, details, status, alamat, latitude, longitude) VALUES (:nama, :nspp, :kab, :kat, :details, 'approved', :alamat, :lat, :lng)");
+                    
+                    $this->pdo->beginTransaction();
+                    foreach ($data as $p) {
+                        $nama = $p['nama'] ?? 'Pesantren';
+                        $nspp = $p['nspp'] ?? '';
+                        $kab = $p['kabupaten'] ?? '';
+                        $alamat = $p['alamat'] ?? '';
+                        $lat = $p['latitude'] ?? null;
+                        $lng = $p['longitude'] ?? null;
+                        
+                        $kat = 'umum';
+                        $details = [];
+                        
+                        if (!empty($p['digital']['is_digital'])) {
+                            $kat = 'digital';
+                            $details = [
+                                'digital_layanan' => $p['digital']['digital_layanan'] ?? 'Sistem Informasi',
+                                'digital_web' => $p['digital']['digital_web'] ?? '',
+                            ];
+                        } elseif (!empty($p['ecoteologi']['is_ecoteologi'])) {
+                            $kat = 'ecoteologi';
+                            $details = [
+                                'eco_program' => $p['ecoteologi']['program'] ?? '',
+                            ];
+                        } elseif (!empty($p['ramah_anak']['is_ramah_anak'])) {
+                            $kat = 'ramah_anak';
+                            $details = [
+                                'ramah_program' => $p['ramah_anak']['program'] ?? '',
+                            ];
+                        } elseif (is_array($p['opop']) && count($p['opop']) > 0) {
+                            $kat = 'produk';
+                            $item = $p['opop'][0];
+                            $details = [
+                                'produk_nama' => $item['nama_produk'] ?? '',
+                                'produk_kontak' => $item['telepon'] ?? '',
+                                'produk_deskripsi' => $item['deskripsi'] ?? '',
+                            ];
+                        } elseif (is_array($p['karya_kitab']) && count($p['karya_kitab']) > 0) {
+                            $kat = 'karya';
+                            $item = $p['karya_kitab'][0];
+                            $details = [
+                                'karya_penulis' => $item['pengarang'] ?? '',
+                                'karya_judul' => $item['judul'] ?? '',
+                            ];
+                        }
+                        
+                        $insertStmt->execute([
+                            ':nama' => $nama,
+                            ':nspp' => $nspp,
+                            ':kab' => $kab,
+                            ':kat' => $kat,
+                            ':details' => json_encode($details),
+                            ':alamat' => $alamat,
+                            ':lat' => $lat,
+                            ':lng' => $lng
+                        ]);
+                    }
+                    $this->pdo->commit();
+                }
+            }
+
+            // 2. Seed from CSV (digital)
+            $csvPath = __DIR__ . '/../digital/pesantren_digital_jatim.csv';
+            if (file_exists($csvPath)) {
+                $rows = array_map('str_getcsv', file($csvPath));
+                $header = array_shift($rows);
+                if (isset($header[0])) {
+                    $header[0] = preg_replace('/^\xEF\xBB\xBF/', '', $header[0]);
+                }
+                
+                $insertStmt = $this->pdo->prepare("INSERT INTO submissions (nama_pesantren, nspp, kabupaten, kategori, details, status, alamat, latitude, longitude) VALUES (:nama, :nspp, :kab, 'digital', :details, 'approved', :alamat, :lat, :lng)");
+                
+                $this->pdo->beginTransaction();
+                foreach ($rows as $row) {
+                    if (count($row) == count($header)) {
+                        $item = array_combine($header, $row);
+                        $nama = $item['Nama Pesantren'] ?? '';
+                        $kab = $item['Kabupaten/Kota'] ?? '';
+                        $alamat = $item['Alamat'] ?? '';
+                        
+                        // Check if already seeded by checking name
+                        $checkStmt = $this->pdo->prepare("SELECT COUNT(id) FROM submissions WHERE nama_pesantren = :nama");
+                        $checkStmt->execute([':nama' => $nama]);
+                        if ($checkStmt->fetchColumn() > 0) {
+                            continue;
+                        }
+                        
+                        $details = [
+                            'digital_layanan' => $item['Layanan Digital'] ?? 'Sistem Informasi',
+                            'digital_web' => $item['Website/Referensi'] ?? '',
+                        ];
+                        
+                        $insertStmt->execute([
+                            ':nama' => $nama,
+                            ':nspp' => '-',
+                            ':kab' => $kab,
+                            ':details' => json_encode($details),
+                            ':alamat' => $alamat,
+                            ':lat' => -7.2504 + (rand(-100, 100) / 1000.0),
+                            ':lng' => 112.7688 + (rand(-100, 100) / 1000.0)
+                        ]);
+                    }
+                }
+                $this->pdo->commit();
+            }
+        }
     }
 }

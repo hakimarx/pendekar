@@ -14,10 +14,14 @@
                     <span style="background: rgba(225, 29, 72, 0.1); color: #E11D48; padding: 6px 14px; border-radius: 20px; font-weight: 600; font-size: 0.88rem; margin-right: 10px;">
                         Mitigasi & Tanggap Bencana
                     </span>
-                    <a href="/pendataan?kategori=aman" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambahkan Data</a>
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                        <a href="/admin/create" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambahkan Data</a>
+                    <?php else: ?>
+                        <a href="/pendataan?kategori=aman" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambahkan Data</a>
+                    <?php endif; ?>
                 </div>
             </div>
-
+ 
             
             <form method="GET" action="" style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
                 <input type="text" name="search" placeholder="Cari nama, nspp, judul..." value="<?php echo $paginated['search'] ?? ''; ?>" style="flex: 1; min-width: 200px; padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px;">
@@ -29,7 +33,7 @@
                 </select>
                 <button type="submit" class="btn-primary" style="padding: 8px 20px; border: none; cursor: pointer;"><i class="fas fa-search"></i> Filter</button>
             </form>
-
+ 
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -42,6 +46,9 @@
                             <th><?php echo $paginated['sortLink']('tahun_kejadian', 'Tahun Kejadian'); ?></th>
                             <th><?php echo $paginated['sortLink']('jarak_bencana', 'Jarak Bencana'); ?></th>
                             <th><?php echo $paginated['sortLink']('kejadian_bencana', 'Kejadian (< 5km)'); ?></th>
+                            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                                <th>Aksi</th>
+                            <?php endif; ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,6 +73,19 @@
                                     <td><?php echo htmlspecialchars($item['tahun_kejadian']); ?></td>
                                     <td><?php echo $item['jarak_km'] !== null ? htmlspecialchars($item['jarak_km']) . ' km' : '-'; ?></td>
                                     <td><span style="background: #E2E8F0; padding: 2px 8px; border-radius: 4px; font-size: 0.82rem; font-weight: 600;"><?php echo htmlspecialchars($item['dalam_5km']); ?></span></td>
+                                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                                        <td style="white-space: nowrap;">
+                                            <a href="/admin/edit?id=<?php echo $item['id']; ?>" class="btn-primary" style="background-color: #3B82F6; border-color: #3B82F6; padding: 4px 8px; font-size: 0.75rem; text-decoration: none; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px;">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <form action="/admin/delete" method="POST" style="display: inline-block; margin-left: 5px;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                                <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
+                                                <button type="submit" class="btn-primary" style="background-color: #EF4444; border-color: #EF4444; padding: 4px 8px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; border: none; color: white;">
+                                                    <i class="fas fa-trash"></i> Hapus
+                                                </button>
+                                            </form>
+                                        </td>
+                                    <?php endif; ?>
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>

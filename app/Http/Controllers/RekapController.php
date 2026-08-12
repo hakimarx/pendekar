@@ -98,29 +98,96 @@ class RekapController
         return $kabs;
     }
 
-    private function loadIntegratedData()
+    private function loadIntegratedDataFromDb($category = null)
     {
-        $dataPath = __DIR__ . '/../../../public/data/pesantren_integrated.json';
-        if (!file_exists($dataPath)) {
-            $dataPath = __DIR__ . '/../../../data/merged_pesantren_data.json';
+        try {
+            $pdo = \App\Database::getInstance()->getConnection();
+            if ($category) {
+                $stmt = $pdo->prepare("SELECT * FROM submissions WHERE status = 'approved' AND kategori = :kat ORDER BY id DESC");
+                $stmt->execute([':kat' => $category]);
+            } else {
+                $stmt = $pdo->query("SELECT * FROM submissions WHERE status = 'approved' ORDER BY id DESC");
+            }
+            $rows = $stmt->fetchAll() ?: [];
+            
+            $data = [];
+            foreach ($rows as $r) {
+                $details = json_decode($r['details'], true) ?: [];
+                $data[] = [
+                    'id' => $r['id'],
+                    'nspp' => $r['nspp'],
+                    'nama' => $r['nama_pesantren'],
+                    'jenjang' => 'Salafiyah/Modern',
+                    'alamat' => $r['alamat'] ?: '-',
+                    'kabupaten' => $r['kabupaten'],
+                    'kecamatan' => '-',
+                    'afiliasi' => 'Umum',
+                    'latitude' => $r['latitude'] ? (float)$r['latitude'] : null,
+                    'longitude' => $r['longitude'] ? (float)$r['longitude'] : null,
+                    'bencana' => [
+                        'level_kerawanan' => 'RENDAH',
+                        'closest_disaster_type' => 'Tidak Ada',
+                    ],
+                    'is_digital' => ($r['kategori'] === 'digital'),
+                    'digital' => [
+                        'is_digital' => ($r['kategori'] === 'digital'),
+                        'digital_layanan' => $details['digital_layanan'] ?? '',
+                        'digital_web' => $details['digital_web'] ?? '',
+                    ],
+                    'Unggulan Aplikasi' => $details['digital_layanan'] ?? 'Sistem Informasi',
+                    'Website/Referensi' => $details['digital_web'] ?? '',
+                    'ecoteologi' => [
+                        'is_ecoteologi' => ($r['kategori'] === 'ecoteologi'),
+                        'program' => $details['eco_program'] ?? '',
+                        'fokus' => 'Pelestarian Lingkungan'
+                    ],
+                    'ramah_anak' => [
+                        'is_ramah_anak' => ($r['kategori'] === 'ramah_anak'),
+                        'program' => $details['ramah_program'] ?? '',
+                        'kurikulum' => 'Anti-Bullying'
+                    ],
+                    'opop' => ($r['kategori'] === 'produk') ? [
+                        [
+                            'nama_produk' => $details['produk_nama'] ?? 'Produk Inovasi',
+                            'deskripsi' => $details['produk_deskripsi'] ?? 'Produk santri',
+                            'kategori' => 'OPOP / Enterpreneur',
+                            'tahun' => date('Y'),
+                            'telepon' => $details['produk_kontak'] ?? '-',
+                            'gambar' => null
+                        ]
+                    ] : 0,
+                    'karya_kitab' => ($r['kategori'] === 'karya') ? [
+                        [
+                            'judul' => $details['karya_judul'] ?? 'Kitab Unggulan',
+                            'pengarang' => $details['karya_penulis'] ?? 'Santri',
+                            'tahun' => date('Y'),
+                            'halaman' => '100',
+                            'jilid' => '1',
+                            'isbn' => '-',
+                            'haki' => 'Terdaftar',
+                            'penerbit' => 'Mandiri',
+                            'link_karya' => '',
+                            'telepon' => '-',
+                            'deskripsi' => 'Kitab keilmuan pesantren.'
+                        ]
+                    ] : 0
+                ];
+            }
+            return $data;
+        } catch (\PDOException $e) {
+            return [];
         }
-
-        if (file_exists($dataPath)) {
-            $json = file_get_contents($dataPath);
-            $data = json_decode($json, true);
-            return is_array($data) ? $data : [];
-        }
-        return [];
     }
 
     public function pesantren()
     {
-        $allData = $this->loadIntegratedData();
+        $allData = $this->loadIntegratedDataFromDb();
         $pesantrenList = [];
 
-        foreach ($allData as $nspp => $p) {
+        foreach ($allData as $p) {
             $pesantrenList[] = [
-                'nspp' => $p['nspp'] ?? $nspp,
+                'id' => $p['id'] ?? null,
+                'nspp' => $p['nspp'] ?? '-',
                 'nama' => $p['nama'] ?? 'Pesantren',
                 'jenjang' => $p['jenjang'] ?? '-',
                 'alamat' => $p['alamat'] ?? '-',
@@ -131,26 +198,26 @@ class RekapController
             ];
         }
 
-        
         $kabupatenList = $this->getKabupatenList($allData);
         $paginated = $this->paginateAndFilter($pesantrenList);
         return $this->renderView('rekap_pesantren', [
             'pageTitle' => 'Rekap Data Pesantren Jawa Timur | PENDEKAR',
-            'pesantrenList' => $pesantrenList
-        ,
+            'pesantrenList' => $pesantrenList,
             'paginated' => $paginated,
-            'kabupatenList' => $kabupatenList]);
+            'kabupatenList' => $kabupatenList
+        ]);
     }
 
     public function bencana()
     {
-        $allData = $this->loadIntegratedData();
+        $allData = $this->loadIntegratedDataFromDb();
         $bencanaList = [];
 
-        foreach ($allData as $nspp => $p) {
+        foreach ($allData as $p) {
             $b = $p['bencana'] ?? [];
             if (!empty($b)) {
                 $bencanaList[] = [
+                    'id' => $p['id'] ?? null,
                     'nama' => $p['nama'] ?? 'Pesantren',
                     'kabupaten' => $p['kabupaten'] ?? '-',
                     'level_kerawanan' => $b['level_kerawanan'] ?? 'Normal',
@@ -164,26 +231,26 @@ class RekapController
             }
         }
 
-        
         $kabupatenList = $this->getKabupatenList($allData);
         $paginated = $this->paginateAndFilter($bencanaList);
         return $this->renderView('rekap_bencana', [
             'pageTitle' => 'Rekap Risiko Bencana Pesantren | PENDEKAR',
-            'bencanaList' => $bencanaList
-        ,
+            'bencanaList' => $bencanaList,
             'paginated' => $paginated,
-            'kabupatenList' => $kabupatenList]);
+            'kabupatenList' => $kabupatenList
+        ]);
     }
 
     public function ramah()
     {
-        $allData = $this->loadIntegratedData();
+        $allData = $this->loadIntegratedDataFromDb('ramah_anak');
         $ramahList = [];
 
-        foreach ($allData as $nspp => $p) {
+        foreach ($allData as $p) {
             $r = $p['ramah_anak'] ?? [];
             if (!empty($r['is_ramah_anak'])) {
                 $ramahList[] = [
+                    'id' => $p['id'] ?? null,
                     'nama' => $p['nama'] ?? 'Pesantren',
                     'kabupaten' => $p['kabupaten'] ?? '-',
                     'program' => $r['program'] ?? 'Program Pesantren Ramah Anak',
@@ -194,51 +261,35 @@ class RekapController
             }
         }
 
-        
         $kabupatenList = $this->getKabupatenList($allData);
         $paginated = $this->paginateAndFilter($ramahList);
         return $this->renderView('rekap_ramah', [
             'pageTitle' => 'Rekap Pesantren Ramah Anak | PENDEKAR',
-            'ramahList' => $ramahList
-        ,
+            'ramahList' => $ramahList,
             'paginated' => $paginated,
-            'kabupatenList' => $kabupatenList]);
+            'kabupatenList' => $kabupatenList
+        ]);
     }
 
     public function digital()
     {
-        $csvPath = __DIR__ . '/../../../digital/pesantren_digital_jatim.csv';
+        $allData = $this->loadIntegratedDataFromDb('digital');
         $digitalList = [];
-        if (file_exists($csvPath)) {
-            $rows = array_map('str_getcsv', file($csvPath));
-            $header = array_shift($rows);
-            // Remove UTF-8 BOM if present in the first column header
-            if (isset($header[0])) {
-                $header[0] = preg_replace('/^\xEF\xBB\xBF/', '', $header[0]);
-            }
-            foreach ($rows as $row) {
-                if (count($row) == count($header)) {
-                    $item = array_combine($header, $row);
-                    $item['nama'] = $item['Nama Pesantren'] ?? '';
-                    $item['kabupaten'] = $item['Kabupaten/Kota'] ?? '';
-                    
-                    // Add mock fields to prevent json parse errors in modal
-                    $item['nspp'] = '-';
-                    $item['alamat'] = $item['Alamat'] ?? '-';
-                    $item['raw_json'] = htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8');
-                    
-                    $digitalList[] = $item;
-                }
-            }
-        }
-        
-        $kabs = [];
-        foreach ($digitalList as $p) {
-            if (!empty($p['Kabupaten/Kota'])) $kabs[] = $p['Kabupaten/Kota'];
-        }
-        $kabupatenList = array_unique($kabs);
-        sort($kabupatenList);
 
+        foreach ($allData as $p) {
+            $digitalList[] = [
+                'id' => $p['id'] ?? null,
+                'nama' => $p['nama'] ?? 'Pesantren',
+                'kabupaten' => $p['kabupaten'] ?? '-',
+                'alamat' => $p['alamat'] ?? '-',
+                'nspp' => $p['nspp'] ?? '-',
+                'Unggulan Aplikasi' => $p['Unggulan Aplikasi'] ?? 'Sistem Informasi',
+                'Website/Referensi' => $p['Website/Referensi'] ?? '',
+                'raw_json' => htmlspecialchars(json_encode($p), ENT_QUOTES, 'UTF-8')
+            ];
+        }
+
+        $kabupatenList = $this->getKabupatenList($allData);
         $paginated = $this->paginateAndFilter($digitalList, 15);
         return $this->renderView('rekap_digital', [
             'pageTitle' => 'Rekap Pesantren Digital | PENDEKAR',
@@ -250,13 +301,14 @@ class RekapController
 
     public function ecoteologi()
     {
-        $allData = $this->loadIntegratedData();
+        $allData = $this->loadIntegratedDataFromDb('ecoteologi');
         $ecoList = [];
 
-        foreach ($allData as $nspp => $p) {
+        foreach ($allData as $p) {
             $e = $p['ecoteologi'] ?? [];
             if (!empty($e['is_ecoteologi'])) {
                 $ecoList[] = [
+                    'id' => $p['id'] ?? null,
                     'nama' => $p['nama'] ?? 'Pesantren',
                     'kabupaten' => $p['kabupaten'] ?? '-',
                     'jenis' => $e['jenis'] ?? 'Pengelolaan Eco-Green & Konservasi',
@@ -266,27 +318,27 @@ class RekapController
             }
         }
 
-        
         $kabupatenList = $this->getKabupatenList($allData);
         $paginated = $this->paginateAndFilter($ecoList);
         return $this->renderView('rekap_ecoteologi', [
             'pageTitle' => 'Rekap Pesantren Ecoteologi | PENDEKAR',
-            'ecoList' => $ecoList
-        ,
+            'ecoList' => $ecoList,
             'paginated' => $paginated,
-            'kabupatenList' => $kabupatenList]);
+            'kabupatenList' => $kabupatenList
+        ]);
     }
 
     public function produk()
     {
-        $allData = $this->loadIntegratedData();
+        $allData = $this->loadIntegratedDataFromDb('produk');
         $produkList = [];
 
-        foreach ($allData as $nspp => $p) {
+        foreach ($allData as $p) {
             $opopItems = $p['opop'] ?? [];
             if (is_array($opopItems)) {
                 foreach ($opopItems as $item) {
                     $produkList[] = [
+                        'id' => $p['id'] ?? null,
                         'pesantren' => $p['nama'] ?? 'Pesantren',
                         'kabupaten' => $p['kabupaten'] ?? '-',
                         'nama_produk' => $item['nama_produk'] ?? 'Produk Inovasi',
@@ -300,34 +352,27 @@ class RekapController
             }
         }
 
-        if (empty($produkList)) {
-            $produkList = [
-                ['pesantren' => 'PP. Sidogiri', 'kabupaten' => 'Pasuruan', 'nama_produk' => 'Air Mineral Basmalah', 'deskripsi' => 'Minimarket & Produk Air Mineral Santri', 'kategori' => 'OPOP / Enterpreneur', 'tahun' => 2024, 'kontak' => '081234567890'],
-                ['pesantren' => 'PP. Sunan Drajat', 'kabupaten' => 'Lamongan', 'nama_produk' => 'Pupuk Organik Ecoteologi', 'deskripsi' => 'Olahan Pupuk Organik & Hasil Laut', 'kategori' => 'OPOP / Ecoteologi', 'tahun' => 2024, 'kontak' => '081987654321']
-            ];
-        }
-
-        
         $kabupatenList = $this->getKabupatenList($allData);
         $paginated = $this->paginateAndFilter($produkList);
         return $this->renderView('rekap_produk', [
             'pageTitle' => 'Rekap Data Produk Pesantren (OPOP) | PENDEKAR',
-            'produkList' => $produkList
-        ,
+            'produkList' => $produkList,
             'paginated' => $paginated,
-            'kabupatenList' => $kabupatenList]);
+            'kabupatenList' => $kabupatenList
+        ]);
     }
 
     public function karyailmiah()
     {
-        $allData = $this->loadIntegratedData();
+        $allData = $this->loadIntegratedDataFromDb('karya');
         $karyaList = [];
 
-        foreach ($allData as $nspp => $p) {
+        foreach ($allData as $p) {
             $kitabItems = $p['karya_kitab'] ?? [];
             if (is_array($kitabItems)) {
                 foreach ($kitabItems as $item) {
                     $karyaList[] = [
+                        'id' => $p['id'] ?? null,
                         'pesantren' => $p['nama'] ?? 'Pesantren',
                         'kabupaten' => $p['kabupaten'] ?? '-',
                         'judul' => $item['judul'] ?? 'Karya Kitab / Ilmiah',
@@ -348,23 +393,14 @@ class RekapController
             }
         }
 
-        if (empty($karyaList)) {
-            $karyaList = [
-                ['pesantren' => 'PP. Lirboyo', 'kabupaten' => 'Kota Kediri', 'judul' => 'ILMU MANASIK VERSI ANDROID', 'penulis' => 'DR. H. NUR YASIN SHIROTOL MUSTAQIM, MA', 'tahun' => '2023', 'halaman' => 'Digital App', 'jilid' => '1', 'isbn' => '-', 'haki' => '-', 'penerbit' => 'Mandiri', 'link_karya' => 'https://play.google.com/store/apps/details?id=com.ilmumanasik.android', 'telepon' => '081230000177', 'deskripsi' => 'Aplikasi ilmu manasik haji berbasis Android.', 'kategori' => 'Karya Kitab / Digital'],
-                ['pesantren' => 'PP. Tebuireng', 'kabupaten' => 'Jombang', 'judul' => 'KEPEMIMPINAN PENDIDIKAN (INTEGRASI TEORI DAN PRAKTIK)', 'penulis' => 'WAHYU SYAF\'AAT', 'tahun' => '2024', 'halaman' => '80', 'jilid' => '1', 'isbn' => '978-623-92462-2-8', 'haki' => 'PDKI Kemenkumham', 'penerbit' => 'Staisam Pustaka', 'link_karya' => '', 'telepon' => '085730552525', 'deskripsi' => 'Buku ajar kepemimpinan pendidikan.', 'kategori' => 'Karya Kitab / Ilmiah',
-                        'raw_json' => htmlspecialchars(json_encode($p), ENT_QUOTES, 'UTF-8')]
-            ];
-        }
-
-        
         $kabupatenList = $this->getKabupatenList($allData);
         $paginated = $this->paginateAndFilter($karyaList);
         return $this->renderView('rekap_karyailmiah', [
             'pageTitle' => 'Rekap Data Karya & Kitab Pesantren | PENDEKAR JATIM',
-            'karyaList' => $karyaList
-        ,
+            'karyaList' => $karyaList,
             'paginated' => $paginated,
-            'kabupatenList' => $kabupatenList]);
+            'kabupatenList' => $kabupatenList
+        ]);
     }
 
     private function renderView($viewName, $data = [])
