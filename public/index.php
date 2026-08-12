@@ -116,6 +116,20 @@ switch ($uri) {
             $controller->edit();
         }
         break;
+    case '/admin/create':
+        $controller = new App\Http\Controllers\AdminController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->store();
+        } else {
+            $controller->create();
+        }
+        break;
+    case '/admin/delete':
+        $controller = new App\Http\Controllers\AdminController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->delete();
+        }
+        break;
     case '/verifikator':
         $controller = new App\Http\Controllers\VerifikatorController();
         $controller->index();

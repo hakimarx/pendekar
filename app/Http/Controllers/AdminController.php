@@ -321,6 +321,216 @@ class AdminController
         }
     }
 
+    public function create()
+    {
+        return $this->renderView('create_submission', [
+            'pageTitle' => 'Tambah Data Baru | PENDEKAR'
+        ]);
+    }
+
+    public function store()
+    {
+        $namaPesantren = $_POST['nama_pesantren'] ?? '';
+        $nspp = $_POST['nspp'] ?? '';
+        $kabupaten = $_POST['kabupaten'] ?? '';
+        $kategori = $_POST['kategori'] ?? '';
+        $alamat = $_POST['alamat'] ?? '';
+        $latitude = $_POST['latitude'] ?? null;
+        $longitude = $_POST['longitude'] ?? null;
+
+        if (empty($namaPesantren) || empty($nspp) || empty($kabupaten) || empty($kategori)) {
+            $_SESSION['flash_error'] = "Semua field bertanda bintang (*) wajib diisi.";
+            header("Location: /admin/create");
+            exit;
+        }
+
+        // Collect dynamic details based on category
+        $details = [];
+        switch ($kategori) {
+            case 'produk':
+                $details = [
+                    'produk_nama' => $_POST['produk_nama'] ?? '',
+                    'produk_kontak' => $_POST['produk_kontak'] ?? '',
+                    'produk_deskripsi' => $_POST['produk_deskripsi'] ?? '',
+                ];
+                break;
+            case 'karya':
+                $details = [
+                    'karya_penulis' => $_POST['karya_penulis'] ?? '',
+                    'karya_judul' => $_POST['karya_judul'] ?? '',
+                ];
+                break;
+            case 'digital':
+                $details = [
+                    'digital_layanan' => $_POST['digital_layanan'] ?? '',
+                    'digital_web' => $_POST['digital_web'] ?? '',
+                ];
+                break;
+            case 'ecoteologi':
+                $details = [
+                    'eco_program' => $_POST['eco_program'] ?? '',
+                ];
+                break;
+            case 'aman':
+                $details = [
+                    'aman_program' => $_POST['aman_program'] ?? '',
+                ];
+                break;
+            case 'ramah_anak':
+                $details = [
+                    'ramah_program' => $_POST['ramah_program'] ?? '',
+                ];
+                break;
+        }
+        $detailsJson = json_encode($details);
+
+        try {
+            $pdo = \App\Database::getInstance()->getConnection();
+            
+            // Insert into DB as 'approved' directly
+            $stmt = $pdo->prepare("INSERT INTO submissions (nama_pesantren, nspp, kabupaten, kategori, details, status, alamat, latitude, longitude) VALUES (:nama, :nspp, :kab, :kat, :details, 'approved', :alamat, :lat, :lng)");
+            $stmt->execute([
+                ':nama' => $namaPesantren,
+                ':nspp' => $nspp,
+                ':kab' => $kabupaten,
+                ':kat' => $kategori,
+                ':details' => $detailsJson,
+                ':alamat' => $alamat,
+                ':lat' => $latitude !== '' ? (float)$latitude : null,
+                ':lng' => $longitude !== '' ? (float)$longitude : null
+            ]);
+
+            // Append directly to the JSON files
+            $this->updateJsonData(null, [
+                'nspp' => $nspp,
+                'nama' => strtoupper($namaPesantren),
+                'jenjang' => 'Salafiyah/Modern',
+                'alamat' => $alamat ?: '-',
+                'kabupaten' => strtoupper($kabupaten),
+                'kecamatan' => '-',
+                'afiliasi' => 'Umum',
+                'latitude' => $latitude !== '' ? (float)$latitude : (-7.2504 + (rand(-100, 100) / 1000.0)),
+                'longitude' => $longitude !== '' ? (float)$longitude : (112.7688 + (rand(-100, 100) / 1000.0)),
+                'bencana' => [
+                    'level_kerawanan' => 'RENDAH',
+                    'closest_disaster_type' => 'Tidak Ada',
+                ],
+                'digital' => [
+                    'is_digital' => ($kategori === 'digital')
+                ],
+                'ecoteologi' => [
+                    'is_ecoteologi' => ($kategori === 'ecoteologi'),
+                    'program' => $details['eco_program'] ?? '',
+                    'fokus' => 'Pelestarian Lingkungan'
+                ],
+                'ramah_anak' => [
+                    'is_ramah_anak' => ($kategori === 'ramah_anak'),
+                    'program' => $details['ramah_program'] ?? '',
+                    'kurikulum' => 'Anti-Bullying'
+                ],
+                'opop' => ($kategori === 'produk') ? [
+                    [
+                        'nama_produk' => $details['produk_nama'] ?? 'Produk Inovasi',
+                        'deskripsi' => $details['produk_deskripsi'] ?? 'Produk santri',
+                        'kategori' => 'OPOP / Enterpreneur',
+                        'tahun' => date('Y'),
+                        'telepon' => $details['produk_kontak'] ?? '-',
+                        'gambar' => null
+                    ]
+                ] : 0,
+                'karya_kitab' => ($kategori === 'karya') ? [
+                    [
+                        'judul' => $details['karya_judul'] ?? 'Kitab Unggulan',
+                        'pengarang' => $details['karya_penulis'] ?? 'Santri',
+                        'tahun' => date('Y'),
+                        'halaman' => '100',
+                        'jilid' => '1',
+                        'isbn' => '-',
+                        'haki' => 'Terdaftar',
+                        'penerbit' => 'Mandiri',
+                        'link_karya' => '',
+                        'telepon' => '-',
+                        'deskripsi' => 'Kitab keilmuan pesantren.'
+                    ]
+                ] : 0
+            ]);
+
+            $_SESSION['flash_success'] = "Data baru berhasil ditambahkan dan langsung dipublikasikan!";
+            header('Location: /admin');
+            exit;
+        } catch (\PDOException $e) {
+            $_SESSION['flash_error'] = "Database error: " . $e->getMessage();
+            header("Location: /admin/create");
+            exit;
+        }
+    }
+
+    public function delete()
+    {
+        $id = $_POST['id'] ?? '';
+        if (empty($id)) {
+            header('Location: /admin');
+            exit;
+        }
+
+        try {
+            $pdo = \App\Database::getInstance()->getConnection();
+            
+            // Get submission details first to find its NSPP and status
+            $stmt = $pdo->prepare("SELECT * FROM submissions WHERE id = :id");
+            $stmt->execute([':id' => $id]);
+            $sub = $stmt->fetch();
+
+            if (!$sub) {
+                $_SESSION['flash_error'] = "Data tidak ditemukan.";
+                header('Location: /admin');
+                exit;
+            }
+
+            // Delete from DB
+            $delStmt = $pdo->prepare("DELETE FROM submissions WHERE id = :id");
+            $delStmt->execute([':id' => $id]);
+
+            // If it was approved, clean it up from the JSON datasets too
+            if ($sub['status'] === 'approved') {
+                $this->deleteJsonData($sub['nspp']);
+            }
+
+            $_SESSION['flash_success'] = "Data pengajuan berhasil dihapus!";
+        } catch (\PDOException $e) {
+            $_SESSION['flash_error'] = "Gagal menghapus data: " . $e->getMessage();
+        }
+
+        header('Location: /admin');
+        exit;
+    }
+
+    private function deleteJsonData($nspp)
+    {
+        // 1. Remove from public/data/pesantren_integrated.json
+        $dataPath = __DIR__ . '/../../../public/data/pesantren_integrated.json';
+        if (!file_exists($dataPath)) {
+            $dataPath = __DIR__ . '/../../../data/merged_pesantren_data.json';
+        }
+        if (file_exists($dataPath)) {
+            $data = json_decode(file_get_contents($dataPath), true) ?: [];
+            $filtered = array_filter($data, function($item) use ($nspp) {
+                return $item['nspp'] != $nspp;
+            });
+            file_put_contents($dataPath, json_encode(array_values($filtered), JSON_PRETTY_PRINT));
+        }
+
+        // 2. Remove from public/data/pesantren_map_data.json
+        $mapPath = __DIR__ . '/../../../public/data/pesantren_map_data.json';
+        if (file_exists($mapPath)) {
+            $mapData = json_decode(file_get_contents($mapPath), true) ?: [];
+            $filteredMap = array_filter($mapData, function($item) use ($nspp) {
+                return $item['nspp'] != $nspp;
+            });
+            file_put_contents($mapPath, json_encode(array_values($filteredMap)));
+        }
+    }
+
     private function renderView($viewName, $data = [])
     {
         extract($data);

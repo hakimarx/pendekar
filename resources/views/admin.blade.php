@@ -9,6 +9,9 @@
                 <p style="color: #64748B; margin: 5px 0 0 0; font-size: 0.95rem;">Selamat datang, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong> (<?php echo htmlspecialchars($_SESSION['role']); ?>)</p>
             </div>
             <div style="display: flex; gap: 10px;">
+                <a href="/admin/create" class="btn-primary" style="background-color: #2D5D7C; border-color: #2D5D7C; padding: 10px 20px; font-size: 0.9rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px; color: white;">
+                    <i class="fas fa-plus"></i> Tambah Data Baru
+                </a>
                 <a href="/verifikator" class="btn-primary" style="background-color: #10B981; border-color: #10B981; padding: 10px 20px; font-size: 0.9rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px;">
                     <i class="fas fa-clipboard-list"></i> Halaman Verifikasi
                 </a>
@@ -102,10 +105,16 @@
                                                 <?php echo $statusText; ?>
                                             </span>
                                         </td>
-                                        <td style="padding: 12px 10px; text-align: center;">
+                                        <td style="padding: 12px 10px; text-align: center; white-space: nowrap;">
                                             <a href="/admin/edit?id=<?php echo $row['id']; ?>" class="btn-primary" style="background-color: #3B82F6; border-color: #3B82F6; padding: 4px 10px; font-size: 0.75rem; text-decoration: none; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px;">
                                                 <i class="fas fa-edit"></i> Edit
                                             </a>
+                                            <form action="/admin/delete" method="POST" style="display: inline-block; margin-left: 5px;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data pengajuan ini?');">
+                                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                                <button type="submit" class="btn-primary" style="background-color: #EF4444; border-color: #EF4444; padding: 4px 10px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; border: none; color: white;">
+                                                    <i class="fas fa-trash"></i> Hapus
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
