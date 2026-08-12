@@ -36,78 +36,89 @@ require_once __DIR__ . '/../app/Http/Controllers/LoginController.php';
 require_once __DIR__ . '/../app/Http/Controllers/VerifikatorController.php';
 require_once __DIR__ . '/../app/Http/Controllers/AdminController.php';
 
-// Route Definitions
-$dashboardController = new App\Http\Controllers\DashboardController();
-$pendataanController = new App\Http\Controllers\PendataanController();
-$rekapController = new App\Http\Controllers\RekapController();
-$loginController = new App\Http\Controllers\LoginController();
-$verifikatorController = new App\Http\Controllers\VerifikatorController();
-$adminController = new App\Http\Controllers\AdminController();
-
+// Route Definitions and Execution
 switch ($uri) {
     case '/':
     case '/index.php':
-        $dashboardController->index();
+        $controller = new App\Http\Controllers\DashboardController();
+        $controller->index();
         break;
     case '/pendataan':
+        $controller = new App\Http\Controllers\PendataanController();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $pendataanController->store();
+            $controller->store();
         } else {
-            $pendataanController->index();
+            $controller->index();
         }
         break;
     case '/rekap/pesantren':
-        $rekapController->pesantren();
+        $controller = new App\Http\Controllers\RekapController();
+        $controller->pesantren();
         break;
     case '/rekap/bencana':
-        $rekapController->bencana();
+        $controller = new App\Http\Controllers\RekapController();
+        $controller->bencana();
         break;
     case '/rekap/ramah':
-        $rekapController->ramah();
+        $controller = new App\Http\Controllers\RekapController();
+        $controller->ramah();
         break;
     case '/rekap/digital':
-        $rekapController->digital();
+        $controller = new App\Http\Controllers\RekapController();
+        $controller->digital();
         break;
     case '/rekap/ecoteologi':
-        $rekapController->ecoteologi();
+        $controller = new App\Http\Controllers\RekapController();
+        $controller->ecoteologi();
         break;
     case '/rekap/karyailmiah':
     case '/rekap/kitab':
-        $rekapController->karyailmiah();
+        $controller = new App\Http\Controllers\RekapController();
+        $controller->karyailmiah();
         break;
     case '/rekap/produk':
-        $rekapController->produk();
+        $controller = new App\Http\Controllers\RekapController();
+        $controller->produk();
         break;
     case '/api/pesantren':
-        $dashboardController->apiPesantren();
+        $controller = new App\Http\Controllers\DashboardController();
+        $controller->apiPesantren();
         break;
     case '/api/stats':
-        $dashboardController->apiStats();
+        $controller = new App\Http\Controllers\DashboardController();
+        $controller->apiStats();
         break;
     case '/login':
+        $controller = new App\Http\Controllers\LoginController();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $loginController->login();
+            $controller->login();
         } else {
-            $loginController->index();
+            $controller->index();
         }
         break;
     case '/logout':
-        $loginController->logout();
+        $controller = new App\Http\Controllers\LoginController();
+        $controller->logout();
         break;
     case '/verifikator':
-        $verifikatorController->index();
+        $controller = new App\Http\Controllers\VerifikatorController();
+        $controller->index();
         break;
     case '/verifikator/approve':
-        $verifikatorController->approve();
+        $controller = new App\Http\Controllers\VerifikatorController();
+        $controller->approve();
         break;
     case '/verifikator/reject':
-        $verifikatorController->reject();
+        $controller = new App\Http\Controllers\VerifikatorController();
+        $controller->reject();
         break;
     case '/admin':
-        $adminController->index();
+        $controller = new App\Http\Controllers\AdminController();
+        $controller->index();
         break;
     case '/admin/users':
-        $adminController->addUser();
+        $controller = new App\Http\Controllers\AdminController();
+        $controller->addUser();
         break;
     default:
         http_response_code(404);
