@@ -106,7 +106,7 @@ class Database
         $stmtSub = $this->pdo->query("SELECT COUNT(id) FROM submissions");
         $subCount = $stmtSub->fetchColumn();
 
-        if ($subCount == 0) {
+        if ($subCount < 100) {
             // 1. Seed from JSON
             $dataPath = __DIR__ . '/../public/data/pesantren_integrated.json';
             if (!file_exists($dataPath)) {
