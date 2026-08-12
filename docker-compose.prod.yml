@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  pendekar-app:
+    image: pendekar-pendekar-app:latest
+    container_name: pendekar_laravel_app
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./storage:/var/www/html/storage
+      - ./database:/var/www/html/database
+    environment:
+      - APP_NAME=PENDEKAR
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - APP_URL=https://pendekar.my.id
+      - DB_CONNECTION=sqlite
+      - DB_DATABASE=/var/www/html/database/database.sqlite
+    networks:
+      - pendekar-network
+
+networks:
+  pendekar-network:
+    driver: bridge

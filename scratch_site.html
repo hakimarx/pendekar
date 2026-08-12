@@ -1,0 +1,748 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Open Graph / WhatsApp Metadata -->
+    <meta property="og:title" content="PENDEKAR | PD PONTREN JAWA TIMUR">
+    <meta property="og:description" content="PENDEKAR | Pendataan Karya Ilmiah & Produk">
+    <meta property="og:image" content="http://pendekar.pdpontrenjatim.my.id/public//assets/images/pendekar_icon.png">
+    <meta property="og:url" content="http://pendekar.pdpontrenjatim.my.id">
+    <meta property="og:type" content="website">
+    <title>PENDEKAR | PD PONTREN JAWA TIMUR</title>
+    <link rel="shortcut icon" href="http://pendekar.pdpontrenjatim.my.id/public//assets/images/pendekar_icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00A896;
+            /* Hijau Toska Utama */
+            --primary-dark: #008080;
+            /* Teal lebih gelap */
+            --secondary: #2D5D7C;
+            /* Biru untuk aksen */
+            --light: #F7F9FC;
+            /* Background light */
+            --dark: #333333;
+            /* Text utama */
+            --gray: #6C757D;
+            /* Text sekunder */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        .navbar {
+            background-color: var(--primary);
+            /* Warna hijau toska */
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-text h1 {
+            color: var(--light);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: -5px;
+        }
+
+        .logo-text span {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+        }
+
+        .nav-menu a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--light);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+            }
+
+            .nav-menu {
+                margin-top: 15px;
+            }
+
+            .nav-menu li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+        }
+
+        /* Hero Section - Diubah untuk layout kiri-kanan */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, rgba(0, 168, 150, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 168, 150, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 168, 150, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(0, 168, 150, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .hero-image-container {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-image-container {
+                order: -1;
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+            /* Tambahkan margin bottom */
+            padding-bottom: 10px;
+            /* Tambahkan padding bottom */
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: 0;
+            /* Ubah dari -10px ke 0 */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            margin-top: 5px;
+            /* Jarak antara garis dan teks */
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s;
+            border-top: 3px solid var(--primary);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 168, 150, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 168, 150, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        .about-list {
+            margin-top: 20px;
+        }
+
+        .about-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .about-list i {
+            color: var(--primary);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1A2E35;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo h2 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: -5px;
+        }
+
+        .footer-logo span {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            padding-right: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--primary);
+            margin-top: 3px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+            }
+
+            .nav-menu {
+                margin-top: 20px;
+            }
+
+            .hero {
+                padding: 150px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <img src="http://pendekar.pdpontrenjatim.my.id/public//assets/images/pendekar_icon.png" alt="Logo PENDEKAR">
+                <div class="logo-text">
+                    <h1>PENDEKAR</h1>
+                    <span>Pendataan Karya Ilmiah & Produk</span>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#features">Fitur</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="http://pendekar.pdpontrenjatim.my.id/login">Masuk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Wadah Karya Ilmiah & Inovasi Pesantren Jawa Timur</h1>
+                    <p>Dokumentasikan, Kelola, dan Publikasikan Karyamu di Aplikasi PENDEKAR - Sistem Pendataan Karya
+                        Ilmiah dan Produk Pesantren</p>
+                    <div class="hero-buttons">
+                        <a href="http://pendekar.pdpontrenjatim.my.id/pendataan" class="btn-primary" target="_blank">ISI PENDATAAN</a>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="http://pendekar.pdpontrenjatim.my.id/rekap/karyailmiah" class="btn-outline" target="_blank">DATA KARYA
+                            ILMIAH</a>
+                        <a href="http://pendekar.pdpontrenjatim.my.id/rekap/produk" class="btn-outline" target="_blank">DATA PRODUK</a>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="http://pendekar.pdpontrenjatim.my.id/public//assets/images/p_imam.png" alt="Aplikasi PENDEKAR" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="m-2">Fitur Unggulan</h2>
+                <p>Berbagai kemudahan yang akan Anda dapatkan</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Terpusat</h3>
+                    <p>Kumpulkan semua karya ilmiah pesantren dalam satu sistem terintegrasi yang mudah diakses</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Unggah Mudah</h3>
+                    <p>Proses upload karya ilmiah dan produk digital yang cepat dengan antarmuka sederhana</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Pencarian Canggih</h3>
+                    <p>Temukan karya dengan mudah menggunakan fitur pencarian berdasarkan kategori dan kata kunci</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analisis Data</h3>
+                    <p>Statistik perkembangan karya ilmiah pesantren untuk kebutuhan evaluasi dan pengembangan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="http://pendekar.pdpontrenjatim.my.id/public//assets/images/logo_pendekar_mini.png" alt="Tentang PENDEKAR">
+                </div>
+                <div class="about-text">
+                    <h2>Tentang Aplikasi PENDEKAR</h2>
+                    <p>PENDEKAR (Pendataan Karya Ilmiah dan Produk) adalah sistem digital untuk menghimpun, mengelola,
+                        dan mendokumentasikan berbagai karya ilmiah dan produk intelektual yang dihasilkan oleh santri,
+                        ustadz/ustadzah, pengasuh, dan lembaga di lingkungan Pendidikan Diniyah dan Pondok Pesantren.
+                    </p>
+                    <p>Nama "PENDEKAR" mengandung makna filosofis sebagai simbol kekuatan intelektual dan spiritual,
+                        mencerminkan santri dan pesantren sebagai pejuang ilmu dan peradaban.</p>
+                    <ul class="about-list">
+                        <li><i class="fas fa-check-circle"></i> Menginventarisasi karya ilmiah dan produk unggulan
+                            pesantren</li>
+                        <li><i class="fas fa-check-circle"></i> Mendorong budaya ilmiah dan literasi di kalangan santri
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Menyediakan ruang apresiasi karya pesantren</li>
+                        <li><i class="fas fa-check-circle"></i> Membangun ekosistem digital pesantren</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1.000+</h3>
+                    <p>Pesantren Terdaftar</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2.500+</h3>
+                    <p>Karya Tercatat</p>
+                </div>
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Produk Inovasi</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Layanan Online</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h2>PENDEKAR</h2>
+                        <span>Pendataan Karya Ilmiah & Produk</span>
+                    </div>
+                    <p>Aplikasi pendataan karya ilmiah dan produk pesantren di lingkungan Kanwil Kemenag Provinsi Jawa
+                        Timur, khususnya di Bidang Pendidikan Diniyah dan Pondok Pesantren.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Link Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#features">Fitur</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="http://pendekar.pdpontrenjatim.my.id/pendataan" target="_blank">Isi Pendataan</a></li>
+                        <li><a href="http://pendekar.pdpontrenjatim.my.id/rekap/karyailmiah" target="_blank">Data Karya Ilmiah</a></li>
+                        <li><a href="http://pendekar.pdpontrenjatim.my.id/rekap/produk" target="_blank">Data Produk</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> Tim Teknis Bidang PD Pontren Kanwil Kemenag Provinsi
+                    Jawa Timur
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

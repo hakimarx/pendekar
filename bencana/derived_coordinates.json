@@ -1,0 +1,1894 @@
+{
+  "KAMPAK, TRENGGALEK": {
+    "latitude": -8.190000000000001,
+    "longitude": 111.651
+  },
+  "TUGU, TRENGGALEK": {
+    "latitude": -8.029166666666667,
+    "longitude": 111.60333333333334
+  },
+  "PURWOASRI, KEDIRI": {
+    "latitude": -7.635,
+    "longitude": 112.11
+  },
+  "DOKO, BLITAR": {
+    "latitude": -8.057500000000001,
+    "longitude": 112.38125
+  },
+  "SENDANG, TULUNGAGUNG": {
+    "latitude": -7.88,
+    "longitude": 111.88285714285713
+  },
+  "KALIWATES, JEMBER": {
+    "latitude": -8.164,
+    "longitude": 113.58533333333334
+  },
+  "PONOROGO, PONOROGO": {
+    "latitude": -7.83909090909091,
+    "longitude": 111.44818181818182
+  },
+  "KALIBARU, BANYUWANGI": {
+    "latitude": -8.21642857142857,
+    "longitude": 113.77714285714285
+  },
+  "SEKAR, BOJONEGORO": {
+    "latitude": -7.396666666666667,
+    "longitude": 111.69333333333333
+  },
+  "MOJOSARI, MOJOKERTO": {
+    "latitude": -7.511538461538462,
+    "longitude": 112.5453846153846
+  },
+  "SUDIMORO, PACITAN": {
+    "latitude": -8.226666666666667,
+    "longitude": 111.29666666666667
+  },
+  "PONCOL, MAGETAN": {
+    "latitude": -7.719166666666666,
+    "longitude": 111.23
+  },
+  "TUTUR, PASURUAN": {
+    "latitude": -7.856363636363636,
+    "longitude": 112.71
+  },
+  "TALUN, BLITAR": {
+    "latitude": -8.1,
+    "longitude": 112.266
+  },
+  "WONOSALAM, JOMBANG": {
+    "latitude": -7.668333333333333,
+    "longitude": 112.14666666666666
+  },
+  "MANYAR, GRESIK": {
+    "latitude": -7.065714285714286,
+    "longitude": 112.58142857142856
+  },
+  "KRAKSAAN, PROBOLINGGO": {
+    "latitude": -7.7542857142857144,
+    "longitude": 113.41285714285713
+  },
+  "GEDEG, MOJOKERTO": {
+    "latitude": -7.450833333333333,
+    "longitude": 112.39999999999999
+  },
+  "WARU, SIDOARJO": {
+    "latitude": -7.359090909090909,
+    "longitude": 112.73181818181818
+  },
+  "NGANCAR, KEDIRI": {
+    "latitude": -7.95,
+    "longitude": 112.17
+  },
+  "PONGGOK, BLITAR": {
+    "latitude": -8.04,
+    "longitude": 112.08
+  },
+  "SUMBERGEMPOL, TULUNGAGUNG": {
+    "latitude": -8.0875,
+    "longitude": 111.9425
+  },
+  "SOOKO, PONOROGO": {
+    "latitude": -7.837000000000001,
+    "longitude": 111.70599999999999
+  },
+  "DIWEK, JOMBANG": {
+    "latitude": -7.601764705882353,
+    "longitude": 112.24117647058823
+  },
+  "PULUNG, PONOROGO": {
+    "latitude": -7.241153846153846,
+    "longitude": 111.62807692307692
+  },
+  "LAMONGAN, LAMONGAN": {
+    "latitude": -7.173333333333334,
+    "longitude": 112.42222222222222
+  },
+  "TURI, LAMONGAN": {
+    "latitude": -7.0649999999999995,
+    "longitude": 112.39
+  },
+  "WAJAK, MALANG": {
+    "latitude": -8.11,
+    "longitude": 112.65
+  },
+  "PARE, KEDIRI": {
+    "latitude": -7.7620000000000005,
+    "longitude": 112.172
+  },
+  "MAGETAN, MAGETAN": {
+    "latitude": -7.668181818181818,
+    "longitude": 111.42818181818183
+  },
+  "KEPANJEN, MALANG": {
+    "latitude": -8.132941176470588,
+    "longitude": 112.5664705882353
+  },
+  "LEDOKOMBO, JEMBER": {
+    "latitude": -8.135,
+    "longitude": 113.8425
+  },
+  "TANJUNG BUMI, BANGKALAN": {
+    "latitude": -6.9,
+    "longitude": 113.04
+  },
+  "MOJOAGUNG, JOMBANG": {
+    "latitude": -7.569259259259259,
+    "longitude": 112.34222222222222
+  },
+  "KEDUNGJAJANG, LUMAJANG": {
+    "latitude": -8.0625,
+    "longitude": 113.22
+  },
+  "GEGER, MADIUN": {
+    "latitude": -7.705,
+    "longitude": 111.52
+  },
+  "KASIMAN, BOJONEGORO": {
+    "latitude": -7.1,
+    "longitude": 111.62
+  },
+  "GONDANG, TULUNGAGUNG": {
+    "latitude": -8.053333333333333,
+    "longitude": 111.82666666666667
+  },
+  "PACE, NGANJUK": {
+    "latitude": -7.668181818181818,
+    "longitude": 111.93636363636364
+  },
+  "TIRTOYUDO, MALANG": {
+    "latitude": -8.2225,
+    "longitude": 112.8175
+  },
+  "PANDAAN, PASURUAN": {
+    "latitude": -7.65090909090909,
+    "longitude": 112.69545454545455
+  },
+  "SUMBERBARU, JEMBER": {
+    "latitude": -8.206666666666665,
+    "longitude": 113.32666666666667
+  },
+  "KALISAT, JEMBER": {
+    "latitude": -8.22,
+    "longitude": 113.75571428571428
+  },
+  "KREJENGAN, PROBOLINGGO": {
+    "latitude": -7.03,
+    "longitude": 110.05
+  },
+  "MLARAK, PONOROGO": {
+    "latitude": -7.922857142857143,
+    "longitude": 111.51428571428572
+  },
+  "SIMAN, PONOROGO": {
+    "latitude": -7.8875,
+    "longitude": 111.47125
+  },
+  "PADEMAWU, PAMEKASAN": {
+    "latitude": -7.1923076923076925,
+    "longitude": 113.5076923076923
+  },
+  "SAMBIT, PONOROGO": {
+    "latitude": -7.964615384615385,
+    "longitude": 111.4176923076923
+  },
+  "KADUR, PAMEKASAN": {
+    "latitude": -7.072,
+    "longitude": 113.549
+  },
+  "AMBULU, JEMBER": {
+    "latitude": -8.3425,
+    "longitude": 113.53
+  },
+  "SUKOMORO, MAGETAN": {
+    "latitude": -7.6275,
+    "longitude": 111.3725
+  },
+  "JETIS, PONOROGO": {
+    "latitude": -7.932857142857143,
+    "longitude": 111.41571428571429
+  },
+  "PRAMBON, SIDOARJO": {
+    "latitude": -7.46,
+    "longitude": 112.56
+  },
+  "MLANDINGAN, SITUBONDO": {
+    "latitude": -7.7725,
+    "longitude": 113.76666666666667
+  },
+  "PAMEKASAN, PAMEKASAN": {
+    "latitude": -7.159999999999999,
+    "longitude": 113.47947368421053
+  },
+  "MUNCAR, BANYUWANGI": {
+    "latitude": -8.434999999999999,
+    "longitude": 114.3075
+  },
+  "KASEMBON, MALANG": {
+    "latitude": -7.751428571428571,
+    "longitude": 112.3157142857143
+  },
+  "BALONGPANGGANG, GRESIK": {
+    "latitude": -7.27,
+    "longitude": 112.395
+  },
+  "PLAOSAN, MAGETAN": {
+    "latitude": -7.652500000000001,
+    "longitude": 111.4585
+  },
+  "POGALAN, TRENGGALEK": {
+    "latitude": -8.0025,
+    "longitude": 111.7775
+  },
+  "PURWOSARI, BOJONEGORO": {
+    "latitude": -7.22,
+    "longitude": 111.7
+  },
+  "JOMBANG, JOMBANG": {
+    "latitude": -7.542666666666666,
+    "longitude": 112.22933333333334
+  },
+  "NGANJUK, NGANJUK": {
+    "latitude": -7.6025,
+    "longitude": 111.84333333333335
+  },
+  "BALEREJO, MADIUN": {
+    "latitude": -7.55,
+    "longitude": 111.5925
+  },
+  "NGAWI, NGAWI": {
+    "latitude": -7.412222222222223,
+    "longitude": 111.44
+  },
+  "GENDING, PROBOLINGGO": {
+    "latitude": -7.792857142857143,
+    "longitude": 113.2757142857143
+  },
+  "SAPEKEN, SUMENEP": {
+    "latitude": -7.06,
+    "longitude": 115.68
+  },
+  "YOSOWILANGUN, LUMAJANG": {
+    "latitude": -8.15,
+    "longitude": 113.17666666666666
+  },
+  "BARAT, MAGETAN": {
+    "latitude": -7.555,
+    "longitude": 111.455
+  },
+  "BLEGA, BANGKALAN": {
+    "latitude": -7.19,
+    "longitude": 113.085
+  },
+  "TARIK, SIDOARJO": {
+    "latitude": -7.45,
+    "longitude": 112.49333333333334
+  },
+  "GUDO, JOMBANG": {
+    "latitude": -7.631428571428572,
+    "longitude": 112.19714285714285
+  },
+  "ARJASA, JEMBER": {
+    "latitude": -8.11,
+    "longitude": 113.725
+  },
+  "TUBAN, TUBAN": {
+    "latitude": -6.8925,
+    "longitude": 112.0575
+  },
+  "GIRI, BANYUWANGI": {
+    "latitude": -8.21,
+    "longitude": 114.345
+  },
+  "KANOR, BOJONEGORO": {
+    "latitude": -7.115,
+    "longitude": 112.035
+  },
+  "NGRAHO, BOJONEGORO": {
+    "latitude": -7.163333333333334,
+    "longitude": 111.5
+  },
+  "NGRAYUN, PONOROGO": {
+    "latitude": -8.3125,
+    "longitude": 111.37375
+  },
+  "ASEMBAGUS, SITUBONDO": {
+    "latitude": -7.772222222222222,
+    "longitude": 114.20555555555555
+  },
+  "PANARUKAN, SITUBONDO": {
+    "latitude": -7.707222222222222,
+    "longitude": 113.92944444444444
+  },
+  "NGARIBOYO, MAGETAN": {
+    "latitude": -7.763571428571429,
+    "longitude": 111.32214285714285
+  },
+  "NGANTRU, TULUNGAGUNG": {
+    "latitude": -7.98,
+    "longitude": 111.91
+  },
+  "PULE, TRENGGALEK": {
+    "latitude": -8.136666666666667,
+    "longitude": 111.505
+  },
+  "JENU, TUBAN": {
+    "latitude": -6.79,
+    "longitude": 111.93333333333334
+  },
+  "WONODADI, BLITAR": {
+    "latitude": -8.034999999999998,
+    "longitude": 111.99333333333334
+  },
+  "BANGKALAN, BANGKALAN": {
+    "latitude": -7.02,
+    "longitude": 112.62
+  },
+  "BANYUWANGI, BANYUWANGI": {
+    "latitude": -8.2164,
+    "longitude": 114.3656
+  },
+  "TAMBAKBOYO, TUBAN": {
+    "latitude": -6.8,
+    "longitude": 111.82
+  },
+  "JABON, SIDOARJO": {
+    "latitude": -7.553333333333334,
+    "longitude": 112.78666666666668
+  },
+  "GONDANG, MOJOKERTO": {
+    "latitude": -7.845000000000001,
+    "longitude": 112.11
+  },
+  "TAROKAN, KEDIRI": {
+    "latitude": -7.74,
+    "longitude": 111.95
+  },
+  "KRATON, PASURUAN": {
+    "latitude": -7.642857142857143,
+    "longitude": 112.8504761904762
+  },
+  "NGORO, JOMBANG": {
+    "latitude": -7.679333333333333,
+    "longitude": 112.24066666666667
+  },
+  "TAMAN, SIDOARJO": {
+    "latitude": -7.3629999999999995,
+    "longitude": 112.65799999999999
+  },
+  "PADANG, LUMAJANG": {
+    "latitude": -8.09,
+    "longitude": 113.155
+  },
+  "PARANG, MAGETAN": {
+    "latitude": -7.738571428571428,
+    "longitude": 111.33142857142857
+  },
+  "DRINGU, PROBOLINGGO": {
+    "latitude": -7.765000000000001,
+    "longitude": 113.235
+  },
+  "KANIGORO, BLITAR": {
+    "latitude": -8.11,
+    "longitude": 112.20285714285714
+  },
+  "WAGIR, MALANG": {
+    "latitude": -7.994,
+    "longitude": 112.554
+  },
+  "NGRONGGOT, NGANJUK": {
+    "latitude": -7.654999999999999,
+    "longitude": 112.07
+  },
+  "GLAGAH, BANYUWANGI": {
+    "latitude": -7.776666666666666,
+    "longitude": 113.30666666666667
+  },
+  "KARE, MADIUN": {
+    "latitude": -7.75,
+    "longitude": 111.665
+  },
+  "WLINGI, BLITAR": {
+    "latitude": -8.056666666666667,
+    "longitude": 112.28666666666668
+  },
+  "WINONGAN, PASURUAN": {
+    "latitude": -7.735833333333333,
+    "longitude": 112.91666666666667
+  },
+  "KOTAANYAR, PROBOLINGGO": {
+    "latitude": -7.585,
+    "longitude": 113.185
+  },
+  "KALITENGAH, LAMONGAN": {
+    "latitude": -7.04,
+    "longitude": 112.39
+  },
+  "BOJONEGORO, BOJONEGORO": {
+    "latitude": -7.171052631578948,
+    "longitude": 111.88526315789474
+  },
+  "NGADILUWIH, KEDIRI": {
+    "latitude": -7.9,
+    "longitude": 111.99
+  },
+  "BALEN, BOJONEGORO": {
+    "latitude": -7.18,
+    "longitude": 111.94666666666667
+  },
+  "TANJUNGANOM, NGANJUK": {
+    "latitude": -7.6433333333333335,
+    "longitude": 111.97666666666667
+  },
+  "MUNJUNGAN, TRENGGALEK": {
+    "latitude": -8.29,
+    "longitude": 111.52000000000001
+  },
+  "PARON, NGAWI": {
+    "latitude": -7.468000000000001,
+    "longitude": 111.34
+  },
+  "JENGGAWAH, JEMBER": {
+    "latitude": -8.29,
+    "longitude": 113.655
+  },
+  "PAKEL, TULUNGAGUNG": {
+    "latitude": -8.18,
+    "longitude": 111.79
+  },
+  "PANGGUNGREJO, BLITAR": {
+    "latitude": -8.267999999999999,
+    "longitude": 112.27799999999999
+  },
+  "BANTUR, MALANG": {
+    "latitude": -8.235,
+    "longitude": 112.57499999999999
+  },
+  "SITUBONDO, SITUBONDO": {
+    "latitude": -7.706,
+    "longitude": 114.0
+  },
+  "PANJI, SITUBONDO": {
+    "latitude": -7.025652173913044,
+    "longitude": 114.03434782608696
+  },
+  "MANGARAN, SITUBONDO": {
+    "latitude": -7.6425,
+    "longitude": 114.03
+  },
+  "KOKOP, BANGKALAN": {
+    "latitude": -7.005,
+    "longitude": 113.015
+  },
+  "TROWULAN, MOJOKERTO": {
+    "latitude": -7.527692307692307,
+    "longitude": 112.3753846153846
+  },
+  "SRONO, BANYUWANGI": {
+    "latitude": -8.372,
+    "longitude": 114.24600000000001
+  },
+  "SOKO, TUBAN": {
+    "latitude": -7.14,
+    "longitude": 111.93
+  },
+  "NGASEM, KEDIRI": {
+    "latitude": -7.805,
+    "longitude": 112.025
+  },
+  "KALIPURO, BANYUWANGI": {
+    "latitude": -8.148333333333333,
+    "longitude": 114.33166666666666
+  },
+  "BANGSALSARI, JEMBER": {
+    "latitude": -8.225000000000001,
+    "longitude": 113.525
+  },
+  "PAGAK, MALANG": {
+    "latitude": -8.21,
+    "longitude": 112.545
+  },
+  "SILO, JEMBER": {
+    "latitude": -8.075000000000001,
+    "longitude": 113.415
+  },
+  "TRENGGALEK, TRENGGALEK": {
+    "latitude": -8.057272727272727,
+    "longitude": 111.7009090909091
+  },
+  "SUKODONO, LUMAJANG": {
+    "latitude": -8.01125,
+    "longitude": 113.14874999999999
+  },
+  "SOOKO, MOJOKERTO": {
+    "latitude": -7.492222222222221,
+    "longitude": 112.39222222222222
+  },
+  "MOJOANYAR, MOJOKERTO": {
+    "latitude": -7.504545454545454,
+    "longitude": 112.4740909090909
+  },
+  "PALANG, TUBAN": {
+    "latitude": -7.068333333333334,
+    "longitude": 112.165
+  },
+  "TIRIS, PROBOLINGGO": {
+    "latitude": -7.983333333333333,
+    "longitude": 113.38333333333333
+  },
+  "NGORO, MOJOKERTO": {
+    "latitude": -7.60125,
+    "longitude": 112.54125
+  },
+  "PUJON, MALANG": {
+    "latitude": -7.873333333333334,
+    "longitude": 112.49000000000001
+  },
+  "TEMBELANG, JOMBANG": {
+    "latitude": -7.492857142857143,
+    "longitude": 112.22428571428573
+  },
+  "PAKISAJI, MALANG": {
+    "latitude": -8.051666666666668,
+    "longitude": 112.60666666666667
+  },
+  "JIWAN, MADIUN": {
+    "latitude": -7.635,
+    "longitude": 111.4675
+  },
+  "PORONG, SIDOARJO": {
+    "latitude": -7.526666666666666,
+    "longitude": 112.67333333333333
+  },
+  "KEPUNG, KEDIRI": {
+    "latitude": -7.79,
+    "longitude": 112.24
+  },
+  "TEMPEH, LUMAJANG": {
+    "latitude": -8.2,
+    "longitude": 113.19
+  },
+  "PEGANTENAN, PAMEKASAN": {
+    "latitude": -7.0775,
+    "longitude": 113.465
+  },
+  "MOJOWARNO, JOMBANG": {
+    "latitude": -7.607142857142857,
+    "longitude": 112.30785714285715
+  },
+  "JAMBON, PONOROGO": {
+    "latitude": -7.922857142857143,
+    "longitude": 111.37285714285714
+  },
+  "BABADAN, PONOROGO": {
+    "latitude": -7.716666666666666,
+    "longitude": 111.41000000000001
+  },
+  "PASIRIAN, LUMAJANG": {
+    "latitude": -8.232,
+    "longitude": 113.096
+  },
+  "MEGALUH, JOMBANG": {
+    "latitude": -7.49,
+    "longitude": 112.21875
+  },
+  "PURWOSARI, PASURUAN": {
+    "latitude": -7.775,
+    "longitude": 112.7375
+  },
+  "PURWODADI, PASURUAN": {
+    "latitude": -7.803333333333334,
+    "longitude": 112.735
+  },
+  "PASONGSONGAN, SUMENEP": {
+    "latitude": -6.94,
+    "longitude": 113.67
+  },
+  "RENGEL, TUBAN": {
+    "latitude": -7.0649999999999995,
+    "longitude": 111.995
+  },
+  "JETIS, MOJOKERTO": {
+    "latitude": -7.41625,
+    "longitude": 112.44
+  },
+  "BANYUPUTIH, SITUBONDO": {
+    "latitude": -7.7973684210526315,
+    "longitude": 114.30473684210526
+  },
+  "TANGGULANGIN, SIDOARJO": {
+    "latitude": -7.5075,
+    "longitude": 112.70375
+  },
+  "GLENMORE, BANYUWANGI": {
+    "latitude": -8.253333333333332,
+    "longitude": 113.98
+  },
+  "TULANGAN, SIDOARJO": {
+    "latitude": -7.483333333333333,
+    "longitude": 112.62
+  },
+  "PROPPO, PAMEKASAN": {
+    "latitude": -7.132857142857143,
+    "longitude": 113.4057142857143
+  },
+  "PAKIS, MALANG": {
+    "latitude": -7.958888888888889,
+    "longitude": 112.69555555555556
+  },
+  "SUMBERMALANG, SITUBONDO": {
+    "latitude": -7.835555555555555,
+    "longitude": 113.76666666666667
+  },
+  "SAMPANG, SAMPANG": {
+    "latitude": -7.17,
+    "longitude": 113.22888888888889
+  },
+  "KRIAN, SIDOARJO": {
+    "latitude": -7.40875,
+    "longitude": 112.5775
+  },
+  "JATIREJO, MOJOKERTO": {
+    "latitude": -7.616,
+    "longitude": 112.41900000000001
+  },
+  "SLAHUNG, PONOROGO": {
+    "latitude": -8.014,
+    "longitude": 111.40299999999999
+  },
+  "PLUMPANG, TUBAN": {
+    "latitude": -7.03,
+    "longitude": 112.11666666666667
+  },
+  "BOTOLINGGO, BONDOWOSO": {
+    "latitude": -7.885000000000001,
+    "longitude": 114.02333333333333
+  },
+  "WIDANG, TUBAN": {
+    "latitude": -7.005,
+    "longitude": 112.13
+  },
+  "TORJUN, SAMPANG": {
+    "latitude": -7.17,
+    "longitude": 113.195
+  },
+  "PUJER, BONDOWOSO": {
+    "latitude": -7.9875,
+    "longitude": 113.8925
+  },
+  "PAKUNIRAN, PROBOLINGGO": {
+    "latitude": -7.8,
+    "longitude": 113.42666666666666
+  },
+  "LAWANG, MALANG": {
+    "latitude": -7.872222222222222,
+    "longitude": 112.69333333333333
+  },
+  "PACET, MOJOKERTO": {
+    "latitude": -7.676666666666667,
+    "longitude": 112.5311111111111
+  },
+  "PUNGGING, MOJOKERTO": {
+    "latitude": -7.530833333333334,
+    "longitude": 112.55166666666666
+  },
+  "NAWANGAN, PACITAN": {
+    "latitude": -8.017307692307693,
+    "longitude": 111.16961538461538
+  },
+  "GARUM, BLITAR": {
+    "latitude": -8.053333333333335,
+    "longitude": 112.27666666666666
+  },
+  "MONTONG, TUBAN": {
+    "latitude": -6.96,
+    "longitude": 111.845
+  },
+  "SARONGGI, SUMENEP": {
+    "latitude": -7.081999999999999,
+    "longitude": 113.838
+  },
+  "BEJI, PASURUAN": {
+    "latitude": -7.58625,
+    "longitude": 112.67541666666666
+  },
+  "PAKEM, BONDOWOSO": {
+    "latitude": -7.9433333333333325,
+    "longitude": 113.69
+  },
+  "PANEKAN, MAGETAN": {
+    "latitude": -7.625,
+    "longitude": 111.285
+  },
+  "SAWOO, PONOROGO": {
+    "latitude": -7.979565217391304,
+    "longitude": 111.56304347826087
+  },
+  "SEMPU, BANYUWANGI": {
+    "latitude": -8.2975,
+    "longitude": 114.1425
+  },
+  "PUGER, JEMBER": {
+    "latitude": -8.36,
+    "longitude": 113.47
+  },
+  "LECES, PROBOLINGGO": {
+    "latitude": -7.823333333333333,
+    "longitude": 113.23333333333333
+  },
+  "KAYEN KIDUL, KEDIRI": {
+    "latitude": -7.75,
+    "longitude": 112.11
+  },
+  "PUNUNG, PACITAN": {
+    "latitude": -8.1,
+    "longitude": 111.045
+  },
+  "GANDUSARI, TRENGGALEK": {
+    "latitude": -8.1175,
+    "longitude": 111.725
+  },
+  "BINANGUN, BLITAR": {
+    "latitude": -8.175,
+    "longitude": 112.33
+  },
+  "KLAKAH, LUMAJANG": {
+    "latitude": -8.02,
+    "longitude": 113.24
+  },
+  "LOCERET, NGANJUK": {
+    "latitude": -7.6475,
+    "longitude": 111.9
+  },
+  "TAJINAN, MALANG": {
+    "latitude": -8.065000000000001,
+    "longitude": 112.675
+  },
+  "BANYUATES, SAMPANG": {
+    "latitude": -6.9,
+    "longitude": 113.2
+  },
+  "KEDUNGWARU, TULUNGAGUNG": {
+    "latitude": -8.028,
+    "longitude": 111.88399999999999
+  },
+  "KAUMAN, TULUNGAGUNG": {
+    "latitude": -8.05,
+    "longitude": 111.83
+  },
+  "POHJENTREK, PASURUAN": {
+    "latitude": -7.7,
+    "longitude": 112.83999999999999
+  },
+  "GRATI, PASURUAN": {
+    "latitude": -7.725,
+    "longitude": 112.97749999999999
+  },
+  "SUMBERMANJING WETAN, MALANG": {
+    "latitude": -8.265,
+    "longitude": 112.695
+  },
+  "DONGKO, TRENGGALEK": {
+    "latitude": -8.2,
+    "longitude": 111.53142857142858
+  },
+  "NGLEGOK, BLITAR": {
+    "latitude": -8.0,
+    "longitude": 112.2
+  },
+  "BLIMBINGSARI, BANYUWANGI": {
+    "latitude": -8.32,
+    "longitude": 114.31
+  },
+  "SEMEN, KEDIRI": {
+    "latitude": -7.83,
+    "longitude": 111.89
+  },
+  "SUMBERJAMBE, JEMBER": {
+    "latitude": -8.076666666666666,
+    "longitude": 113.92333333333333
+  },
+  "DAMPIT, MALANG": {
+    "latitude": -8.125,
+    "longitude": 112.7325
+  },
+  "TULAKAN, PACITAN": {
+    "latitude": -5.982,
+    "longitude": 111.26066666666667
+  },
+  "PATRANG, JEMBER": {
+    "latitude": -8.087142857142856,
+    "longitude": 113.4542857142857
+  },
+  "KUNIR, LUMAJANG": {
+    "latitude": -8.226666666666667,
+    "longitude": 113.21333333333332
+  },
+  "TEGALOMBO, PACITAN": {
+    "latitude": -8.068571428571428,
+    "longitude": 111.28476190476191
+  },
+  "NGADIROJO, PACITAN": {
+    "latitude": -7.90625,
+    "longitude": 111.41375
+  },
+  "SELOPURO, BLITAR": {
+    "latitude": -8.15,
+    "longitude": 112.27
+  },
+  "SEDATI, SIDOARJO": {
+    "latitude": -7.382,
+    "longitude": 112.766
+  },
+  "GEMARANG, MADIUN": {
+    "latitude": -7.6433333333333335,
+    "longitude": 111.62333333333333
+  },
+  "PESANGGARAN, BANYUWANGI": {
+    "latitude": -8.48,
+    "longitude": 113.97
+  },
+  "JANGKAR, SITUBONDO": {
+    "latitude": -7.743333333333333,
+    "longitude": 113.87666666666667
+  },
+  "KEMLAGI, MOJOKERTO": {
+    "latitude": -7.438181818181818,
+    "longitude": 112.35090909090908
+  },
+  "KARTOHARJO, MAGETAN": {
+    "latitude": -7.534000000000001,
+    "longitude": 111.446
+  },
+  "SINGOSARI, MALANG": {
+    "latitude": -7.881111111111112,
+    "longitude": 112.65
+  },
+  "PAPAR, KEDIRI": {
+    "latitude": -7.71,
+    "longitude": 112.08
+  },
+  "CANDIPURO, LUMAJANG": {
+    "latitude": -8.136,
+    "longitude": 112.982
+  },
+  "KAMAL, BANGKALAN": {
+    "latitude": -7.15,
+    "longitude": 112.71
+  },
+  "GALIS, PAMEKASAN": {
+    "latitude": -7.126666666666668,
+    "longitude": 113.46666666666665
+  },
+  "GONDANG, BOJONEGORO": {
+    "latitude": -7.390000000000001,
+    "longitude": 111.78
+  },
+  "TENGGARANG, BONDOWOSO": {
+    "latitude": -7.9275,
+    "longitude": 113.8475
+  },
+  "LUMAJANG, LUMAJANG": {
+    "latitude": -8.07,
+    "longitude": 112.92714285714285
+  },
+  "SOKOBANAH, SAMPANG": {
+    "latitude": -6.955,
+    "longitude": 113.35
+  },
+  "JOGOROTO, JOMBANG": {
+    "latitude": -7.5649999999999995,
+    "longitude": 112.27428571428571
+  },
+  "RUBARU, SUMENEP": {
+    "latitude": -8.29,
+    "longitude": 112.07
+  },
+  "GENTENG, BANYUWANGI": {
+    "latitude": -8.364999999999998,
+    "longitude": 114.155
+  },
+  "KWADUNGAN, NGAWI": {
+    "latitude": -7.473333333333334,
+    "longitude": 111.47666666666667
+  },
+  "WILANGAN, NGANJUK": {
+    "latitude": -7.555,
+    "longitude": 111.82
+  },
+  "BAKUNG, BLITAR": {
+    "latitude": -8.273333333333333,
+    "longitude": 112.05
+  },
+  "BALONG, PONOROGO": {
+    "latitude": -7.939375,
+    "longitude": 111.39125
+  },
+  "MAOSPATI, MAGETAN": {
+    "latitude": -7.5962499999999995,
+    "longitude": 111.44125
+  },
+  "SINE, NGAWI": {
+    "latitude": -7.498,
+    "longitude": 111.15599999999999
+  },
+  "TEKUNG, LUMAJANG": {
+    "latitude": -8.18,
+    "longitude": 113.28
+  },
+  "JABUNG, MALANG": {
+    "latitude": -7.941666666666666,
+    "longitude": 112.75833333333333
+  },
+  "BENJENG, GRESIK": {
+    "latitude": -7.27,
+    "longitude": 112.47
+  },
+  "DRIYOREJO, GRESIK": {
+    "latitude": -7.33375,
+    "longitude": 112.5975
+  },
+  "ROWOKANGKUNG, LUMAJANG": {
+    "latitude": -8.09,
+    "longitude": 112.78666666666668
+  },
+  "MOJO, KEDIRI": {
+    "latitude": -7.8725000000000005,
+    "longitude": 111.7975
+  },
+  "WONOAYU, SIDOARJO": {
+    "latitude": -7.44,
+    "longitude": 112.63166666666666
+  },
+  "BANDAR, PACITAN": {
+    "latitude": -7.991818181818181,
+    "longitude": 111.26545454545455
+  },
+  "BADEGAN, PONOROGO": {
+    "latitude": -7.867777777777778,
+    "longitude": 111.25777777777779
+  },
+  "ARJOSARI, PACITAN": {
+    "latitude": -7.642972972972974,
+    "longitude": 111.1645945945946
+  },
+  "NGANTANG, MALANG": {
+    "latitude": -7.843333333333334,
+    "longitude": 112.35333333333334
+  },
+  "DAWARBLANDONG, MOJOKERTO": {
+    "latitude": -7.3999999999999995,
+    "longitude": 112.44666666666667
+  },
+  "KEREK, TUBAN": {
+    "latitude": -6.8875,
+    "longitude": 111.8225
+  },
+  "SUMOBITO, JOMBANG": {
+    "latitude": -7.525384615384615,
+    "longitude": 112.31153846153846
+  },
+  "MADIUN, MADIUN": {
+    "latitude": -7.645,
+    "longitude": 111.535
+  },
+  "SINGOJURUH, BANYUWANGI": {
+    "latitude": -8.313333333333334,
+    "longitude": 114.19
+  },
+  "SUBOH, SITUBONDO": {
+    "latitude": -7.735,
+    "longitude": 113.79333333333334
+  },
+  "SUMBEREJO, BOJONEGORO": {
+    "latitude": -7.1899999999999995,
+    "longitude": 112.00999999999999
+  },
+  "WARU, PAMEKASAN": {
+    "latitude": -6.995,
+    "longitude": 113.54666666666667
+  },
+  "SUKOMORO, NGANJUK": {
+    "latitude": -7.596000000000001,
+    "longitude": 111.934
+  },
+  "JATIROTO, LUMAJANG": {
+    "latitude": -8.21,
+    "longitude": 113.57499999999999
+  },
+  "PETERONGAN, JOMBANG": {
+    "latitude": -7.523999999999999,
+    "longitude": 112.266
+  },
+  "GERIH, NGAWI": {
+    "latitude": -7.515,
+    "longitude": 111.365
+  },
+  "PLOSO, JOMBANG": {
+    "latitude": -7.436666666666667,
+    "longitude": 112.21333333333332
+  },
+  "KEBOMAS, GRESIK": {
+    "latitude": -7.1825,
+    "longitude": 112.625
+  },
+  "BENDO, MAGETAN": {
+    "latitude": -7.756,
+    "longitude": 111.43800000000002
+  },
+  "SEMANDING, TUBAN": {
+    "latitude": -6.933333333333334,
+    "longitude": 112.07
+  },
+  "OMBEN, SAMPANG": {
+    "latitude": -7.1,
+    "longitude": 113.32
+  },
+  "KESAMBEN, JOMBANG": {
+    "latitude": -7.467142857142858,
+    "longitude": 112.33857142857143
+  },
+  "KEDUNGPRING, LAMONGAN": {
+    "latitude": -7.154999999999999,
+    "longitude": 112.195
+  },
+  "MAESAN, BONDOWOSO": {
+    "latitude": -8.032499999999999,
+    "longitude": 113.775
+  },
+  "JRENGIK, SAMPANG": {
+    "latitude": -7.125,
+    "longitude": 113.11
+  },
+  "ARJASA, SITUBONDO": {
+    "latitude": -7.833333333333333,
+    "longitude": 114.11666666666667
+  },
+  "GEGER, BANGKALAN": {
+    "latitude": -7.22,
+    "longitude": 112.57
+  },
+  "TONGAS, PROBOLINGGO": {
+    "latitude": -7.73,
+    "longitude": 113.0675
+  },
+  "NGULING, PASURUAN": {
+    "latitude": -7.716666666666666,
+    "longitude": 113.04666666666667
+  },
+  "LUMBANG, PROBOLINGGO": {
+    "latitude": -7.874,
+    "longitude": 112.968
+  },
+  "WRINGIN, BONDOWOSO": {
+    "latitude": -7.775454545454545,
+    "longitude": 113.71363636363635
+  },
+  "LAREN, LAMONGAN": {
+    "latitude": -6.97,
+    "longitude": 112.34
+  },
+  "PACIRAN, LAMONGAN": {
+    "latitude": -6.89,
+    "longitude": 112.3
+  },
+  "GONDANG, NGANJUK": {
+    "latitude": -7.525,
+    "longitude": 111.975
+  },
+  "PADAS, NGAWI": {
+    "latitude": -7.44,
+    "longitude": 111.51666666666667
+  },
+  "DLANGGU, MOJOKERTO": {
+    "latitude": -7.56,
+    "longitude": 112.46999999999998
+  },
+  "DONOROJO, PACITAN": {
+    "latitude": -8.190000000000001,
+    "longitude": 110.935
+  },
+  "SONGGON, BANYUWANGI": {
+    "latitude": -8.27,
+    "longitude": 114.2
+  },
+  "PAKUSARI, JEMBER": {
+    "latitude": -8.155000000000001,
+    "longitude": 113.755
+  },
+  "KADEMANGAN, BLITAR": {
+    "latitude": -8.16,
+    "longitude": 112.14666666666666
+  },
+  "PACITAN, PACITAN": {
+    "latitude": -8.188947368421053,
+    "longitude": 111.1042105263158
+  },
+  "SINGGAHAN, TUBAN": {
+    "latitude": -6.96,
+    "longitude": 111.75
+  },
+  "BANTARAN, PROBOLINGGO": {
+    "latitude": -7.84,
+    "longitude": 113.17
+  },
+  "PURI, MOJOKERTO": {
+    "latitude": -7.60875,
+    "longitude": 112.26625
+  },
+  "GEMPOL, PASURUAN": {
+    "latitude": -6.783684210526315,
+    "longitude": 112.69947368421053
+  },
+  "GRESIK, GRESIK": {
+    "latitude": -7.1850000000000005,
+    "longitude": 112.59
+  },
+  "KREMBUNG, SIDOARJO": {
+    "latitude": -7.515,
+    "longitude": 112.61500000000001
+  },
+  "BAGOR, NGANJUK": {
+    "latitude": -7.57,
+    "longitude": 111.84400000000001
+  },
+  "WONGSOREJO, BANYUWANGI": {
+    "latitude": -7.996666666666666,
+    "longitude": 114.375
+  },
+  "KAPAS, BOJONEGORO": {
+    "latitude": -7.193333333333334,
+    "longitude": 111.91666666666667
+  },
+  "LABANG, BANGKALAN": {
+    "latitude": -7.13,
+    "longitude": 112.72
+  },
+  "BANYUANYAR, PROBOLINGGO": {
+    "latitude": -7.863333333333333,
+    "longitude": 113.315
+  },
+  "GAMBIRAN, BANYUWANGI": {
+    "latitude": -8.41,
+    "longitude": 114.16666666666667
+  },
+  "KARANGAN, TRENGGALEK": {
+    "latitude": -8.08,
+    "longitude": 111.63000000000001
+  },
+  "MERAKURAK, TUBAN": {
+    "latitude": -6.98,
+    "longitude": 111.65
+  },
+  "KENDIT, SITUBONDO": {
+    "latitude": -7.676153846153847,
+    "longitude": 113.80538461538461
+  },
+  "KAPONGAN, SITUBONDO": {
+    "latitude": -7.707142857142857,
+    "longitude": 114.07428571428571
+  },
+  "WUNGU, MADIUN": {
+    "latitude": -7.651999999999999,
+    "longitude": 111.54400000000001
+  },
+  "KEBONAGUNG, PACITAN": {
+    "latitude": -8.221538461538461,
+    "longitude": 111.16153846153846
+  },
+  "BUNGKAL, PONOROGO": {
+    "latitude": -7.9975,
+    "longitude": 111.46
+  },
+  "KARANGREJO, TULUNGAGUNG": {
+    "latitude": -7.995,
+    "longitude": 111.89500000000001
+  },
+  "LARANGAN, PAMEKASAN": {
+    "latitude": -7.1375,
+    "longitude": 113.525
+  },
+  "REJOTANGAN, TULUNGAGUNG": {
+    "latitude": -8.14,
+    "longitude": 112.03
+  },
+  "DANDER, BOJONEGORO": {
+    "latitude": -7.234999999999999,
+    "longitude": 111.755
+  },
+  "REJOSO, PASURUAN": {
+    "latitude": -7.668571428571428,
+    "longitude": 112.87428571428572
+  },
+  "KEJAYAN, PASURUAN": {
+    "latitude": -7.73,
+    "longitude": 112.825
+  },
+  "BERBEK, NGANJUK": {
+    "latitude": -7.65,
+    "longitude": 111.85
+  },
+  "SUKOREJO, PONOROGO": {
+    "latitude": -7.843333333333334,
+    "longitude": 111.42333333333333
+  },
+  "KALIDAWIR, TULUNGAGUNG": {
+    "latitude": -8.226666666666667,
+    "longitude": 111.92666666666666
+  },
+  "PANGGUL, TRENGGALEK": {
+    "latitude": -8.208947368421052,
+    "longitude": 111.4342105263158
+  },
+  "GAPURA, SUMENEP": {
+    "latitude": -6.99,
+    "longitude": 113.95
+  },
+  "KASREMAN, NGAWI": {
+    "latitude": -7.4,
+    "longitude": 111.5
+  },
+  "KALITIDU, BOJONEGORO": {
+    "latitude": -7.1325,
+    "longitude": 111.7725
+  },
+  "PERAK, JOMBANG": {
+    "latitude": -7.5725,
+    "longitude": 112.21
+  },
+  "TUMPANG, MALANG": {
+    "latitude": -7.994,
+    "longitude": 112.752
+  },
+  "BANYUGLUGUR, SITUBONDO": {
+    "latitude": -5.14,
+    "longitude": 113.47500000000001
+  },
+  "GUMUKMAS, JEMBER": {
+    "latitude": -8.305,
+    "longitude": 113.405
+  },
+  "BANDARKEDUNGMULYO, JOMBANG": {
+    "latitude": -7.558,
+    "longitude": 112.14200000000001
+  },
+  "CAMPLONG, SAMPANG": {
+    "latitude": -7.22,
+    "longitude": 113.28
+  },
+  "BATUMARMAR, PAMEKASAN": {
+    "latitude": -6.991428571428571,
+    "longitude": 113.48142857142857
+  },
+  "TAMAN KROCOK, BONDOWOSO": {
+    "latitude": -7.89,
+    "longitude": 113.87
+  },
+  "BANGIL, PASURUAN": {
+    "latitude": -7.583125,
+    "longitude": 112.718125
+  },
+  "KUTOREJO, MOJOKERTO": {
+    "latitude": -7.574,
+    "longitude": 112.51399999999998
+  },
+  "CAMPURDARAT, TULUNGAGUNG": {
+    "latitude": -8.146666666666667,
+    "longitude": 111.87333333333333
+  },
+  "SAMBENG, LAMONGAN": {
+    "latitude": -7.21,
+    "longitude": 112.25
+  },
+  "WIDODAREN, NGAWI": {
+    "latitude": -7.3999999999999995,
+    "longitude": 111.21666666666665
+  },
+  "GEDANGAN, SIDOARJO": {
+    "latitude": -7.384,
+    "longitude": 112.72
+  },
+  "SUKORAMBI, JEMBER": {
+    "latitude": -8.11,
+    "longitude": 113.64
+  },
+  "DURENAN, TRENGGALEK": {
+    "latitude": -8.1,
+    "longitude": 111.795
+  },
+  "TRAWAS, MOJOKERTO": {
+    "latitude": -7.62,
+    "longitude": 112.57333333333334
+  },
+  "KAUMAN, PONOROGO": {
+    "latitude": -7.945,
+    "longitude": 111.405
+  },
+  "TAPEN, BONDOWOSO": {
+    "latitude": -7.859999999999999,
+    "longitude": 113.90333333333332
+  },
+  "BESUKI, SITUBONDO": {
+    "latitude": -7.735555555555556,
+    "longitude": 113.74222222222221
+  },
+  "MAYANG, JEMBER": {
+    "latitude": -8.15,
+    "longitude": 113.74
+  },
+  "TIKUNG, LAMONGAN": {
+    "latitude": -7.18,
+    "longitude": 112.34
+  },
+  "SENDURO, LUMAJANG": {
+    "latitude": -7.9375,
+    "longitude": 112.91499999999999
+  },
+  "BUNGAH, GRESIK": {
+    "latitude": -7.045,
+    "longitude": 112.57
+  },
+  "BAURENO, BOJONEGORO": {
+    "latitude": -7.13,
+    "longitude": 112.09
+  },
+  "SAMPUNG, PONOROGO": {
+    "latitude": -7.841666666666666,
+    "longitude": 111.36666666666667
+  },
+  "PANTI, JEMBER": {
+    "latitude": -8.073333333333332,
+    "longitude": 113.60666666666667
+  },
+  "SUMBERSARI, JEMBER": {
+    "latitude": -8.166666666666666,
+    "longitude": 113.71499999999999
+  },
+  "KENDAL, NGAWI": {
+    "latitude": -7.53,
+    "longitude": 111.3
+  },
+  "SUKODADI, LAMONGAN": {
+    "latitude": -7.125,
+    "longitude": 112.33
+  },
+  "PASEAN, PAMEKASAN": {
+    "latitude": -6.94,
+    "longitude": 113.57
+  },
+  "SIDOARJO, SIDOARJO": {
+    "latitude": -7.4625,
+    "longitude": 112.70875
+  },
+  "CERME, GRESIK": {
+    "latitude": -7.243333333333333,
+    "longitude": 112.53666666666668
+  },
+  "BABAT, LAMONGAN": {
+    "latitude": -7.115,
+    "longitude": 112.175
+  },
+  "PUCUK, LAMONGAN": {
+    "latitude": -7.1,
+    "longitude": 112.26
+  },
+  "KARAS, MAGETAN": {
+    "latitude": -7.573333333333333,
+    "longitude": 111.37
+  },
+  "WATES, BLITAR": {
+    "latitude": -8.27,
+    "longitude": 112.29
+  },
+  "WONOMERTO, PROBOLINGGO": {
+    "latitude": -7.8149999999999995,
+    "longitude": 113.155
+  },
+  "BANGSAL, MOJOKERTO": {
+    "latitude": -7.4991666666666665,
+    "longitude": 112.49083333333334
+  },
+  "LEKOK, PASURUAN": {
+    "latitude": -7.66,
+    "longitude": 112.99
+  },
+  "UMBULSARI, JEMBER": {
+    "latitude": -8.23,
+    "longitude": 113.49
+  },
+  "BESUK, PROBOLINGGO": {
+    "latitude": -7.79,
+    "longitude": 113.44
+  },
+  "WONOASRI, MADIUN": {
+    "latitude": -7.59,
+    "longitude": 111.6
+  },
+  "WATULIMO, TRENGGALEK": {
+    "latitude": -8.274285714285714,
+    "longitude": 111.64857142857143
+  },
+  "BURNEH, BANGKALAN": {
+    "latitude": -7.0575,
+    "longitude": 112.535
+  },
+  "PAKONG, PAMEKASAN": {
+    "latitude": -7.03,
+    "longitude": 113.515
+  },
+  "DAGANGAN, MADIUN": {
+    "latitude": -7.7175,
+    "longitude": 111.57
+  },
+  "TLOGOSARI, BONDOWOSO": {
+    "latitude": -7.998,
+    "longitude": 113.96199999999999
+  },
+  "KERTOSONO, NGANJUK": {
+    "latitude": -7.6,
+    "longitude": 112.08
+  },
+  "NGLUYU, NGANJUK": {
+    "latitude": -7.41,
+    "longitude": 112.0
+  },
+  "TAKERAN, MAGETAN": {
+    "latitude": -5.126666666666666,
+    "longitude": 111.46833333333332
+  },
+  "TANAH MERAH, BANGKALAN": {
+    "latitude": -7.0875,
+    "longitude": 112.86
+  },
+  "KURIPAN, PROBOLINGGO": {
+    "latitude": -7.88,
+    "longitude": 113.105
+  },
+  "SUKODONO, SIDOARJO": {
+    "latitude": -7.419999999999999,
+    "longitude": 112.67666666666666
+  },
+  "UDANAWU, BLITAR": {
+    "latitude": -8.0,
+    "longitude": 112.14
+  },
+  "GONDANGLEGI, MALANG": {
+    "latitude": -8.15,
+    "longitude": 112.62
+  },
+  "SUMBERPUCUNG, MALANG": {
+    "latitude": -8.15,
+    "longitude": 112.51
+  },
+  "KEDUNGGALAR, NGAWI": {
+    "latitude": -7.413333333333334,
+    "longitude": 111.32666666666667
+  },
+  "CANDI, SIDOARJO": {
+    "latitude": -7.478333333333334,
+    "longitude": 112.705
+  },
+  "PONCOKUSUMO, MALANG": {
+    "latitude": -8.0475,
+    "longitude": 112.77
+  },
+  "BONDOWOSO, BONDOWOSO": {
+    "latitude": -7.922499999999999,
+    "longitude": 113.82
+  },
+  "JOGOROGO, NGAWI": {
+    "latitude": -7.583333333333333,
+    "longitude": 111.24333333333334
+  },
+  "LUMBANG, PASURUAN": {
+    "latitude": -7.82,
+    "longitude": 112.995
+  },
+  "JENANGAN, PONOROGO": {
+    "latitude": -7.771666666666667,
+    "longitude": 111.49666666666667
+  },
+  "PRINGKUKU, PACITAN": {
+    "latitude": -8.184999999999999,
+    "longitude": 110.925
+  },
+  "KARANGPENANG, SAMPANG": {
+    "latitude": -7.05,
+    "longitude": 113.375
+  },
+  "GADING, PROBOLINGGO": {
+    "latitude": -7.835,
+    "longitude": 113.43
+  },
+  "DAU, MALANG": {
+    "latitude": -7.91,
+    "longitude": 112.59
+  },
+  "NGUNUT, TULUNGAGUNG": {
+    "latitude": -8.1,
+    "longitude": 112.005
+  },
+  "SUKOREJO, PASURUAN": {
+    "latitude": -7.67,
+    "longitude": 112.75
+  },
+  "SOCAH, BANGKALAN": {
+    "latitude": -7.09,
+    "longitude": 112.715
+  },
+  "PRAJEKAN, BONDOWOSO": {
+    "latitude": -7.8,
+    "longitude": 113.93
+  },
+  "MODO, LAMONGAN": {
+    "latitude": -7.16,
+    "longitude": 112.15
+  },
+  "TLANAKAN, PAMEKASAN": {
+    "latitude": -7.2,
+    "longitude": 113.45142857142856
+  },
+  "PRONOJIWO, LUMAJANG": {
+    "latitude": -8.2025,
+    "longitude": 113.0
+  },
+  "PASRUJAMBE, LUMAJANG": {
+    "latitude": -8.11,
+    "longitude": 112.95599999999999
+  },
+  "GONDANGWETAN, PASURUAN": {
+    "latitude": -7.696666666666666,
+    "longitude": 112.89999999999999
+  },
+  "KABAT, BANYUWANGI": {
+    "latitude": -8.274999999999999,
+    "longitude": 114.025
+  },
+  "RANDUAGUNG, LUMAJANG": {
+    "latitude": -8.1,
+    "longitude": 113.25999999999999
+  },
+  "BARON, NGANJUK": {
+    "latitude": -7.59,
+    "longitude": 112.06
+  },
+  "GROGOL, KEDIRI": {
+    "latitude": -7.756666666666667,
+    "longitude": 111.89666666666666
+  },
+  "SRENGAT, BLITAR": {
+    "latitude": -8.084,
+    "longitude": 112.08599999999998
+  },
+  "CERMEE, BONDOWOSO": {
+    "latitude": -7.855,
+    "longitude": 113.935
+  },
+  "BOYOLANGU, TULUNGAGUNG": {
+    "latitude": -8.11,
+    "longitude": 111.87
+  },
+  "PASREPAN, PASURUAN": {
+    "latitude": -7.78,
+    "longitude": 112.85
+  },
+  "PILANGKENCENG, MADIUN": {
+    "latitude": -7.460000000000001,
+    "longitude": 111.67500000000001
+  },
+  "WONOSARI, BONDOWOSO": {
+    "latitude": -7.895,
+    "longitude": 113.89
+  },
+  "BUDURAN, SIDOARJO": {
+    "latitude": -7.4275,
+    "longitude": 112.7275
+  },
+  "SAWAHAN, NGANJUK": {
+    "latitude": -7.7275,
+    "longitude": 111.78
+  },
+  "GLAGAH, LAMONGAN": {
+    "latitude": -7.08,
+    "longitude": 112.48
+  },
+  "ROGOJAMPI, BANYUWANGI": {
+    "latitude": -8.36,
+    "longitude": 114.27
+  },
+  "NGAMBON, BOJONEGORO": {
+    "latitude": -7.29,
+    "longitude": 111.73
+  },
+  "SUGIHWARAS, BOJONEGORO": {
+    "latitude": -7.31,
+    "longitude": 111.95
+  },
+  "JELBUK, JEMBER": {
+    "latitude": -8.07,
+    "longitude": 113.71333333333332
+  },
+  "NGASEM, BOJONEGORO": {
+    "latitude": -7.26,
+    "longitude": 111.79
+  },
+  "SUTOJAYAN, BLITAR": {
+    "latitude": -8.146666666666667,
+    "longitude": 112.21833333333332
+  },
+  "NGUSIKAN, JOMBANG": {
+    "latitude": -7.45,
+    "longitude": 112.33
+  },
+  "WULUHAN, JEMBER": {
+    "latitude": -8.3675,
+    "longitude": 113.52
+  },
+  "KEDUNGADEM, BOJONEGORO": {
+    "latitude": -7.3,
+    "longitude": 112.02
+  },
+  "PURWOHARJO, BANYUWANGI": {
+    "latitude": -8.49,
+    "longitude": 114.225
+  },
+  "TEGALDLIMO, BANYUWANGI": {
+    "latitude": -8.6,
+    "longitude": 114.3
+  },
+  "WATES, KEDIRI": {
+    "latitude": -7.88,
+    "longitude": 112.09
+  },
+  "BUNGATAN, SITUBONDO": {
+    "latitude": -7.728,
+    "longitude": 113.81599999999999
+  },
+  "REMBANG, PASURUAN": {
+    "latitude": -7.586,
+    "longitude": 112.718
+  },
+  "BINAKAL, BONDOWOSO": {
+    "latitude": -7.9,
+    "longitude": 113.734
+  },
+  "TEGALSIWALAN, PROBOLINGGO": {
+    "latitude": -7.89,
+    "longitude": 113.285
+  },
+  "TRUCUK, BOJONEGORO": {
+    "latitude": -7.14,
+    "longitude": 111.87
+  },
+  "KAWEDANAN, MAGETAN": {
+    "latitude": -7.678571428571429,
+    "longitude": 111.39285714285714
+  },
+  "TEGALAMPEL, BONDOWOSO": {
+    "latitude": -7.88,
+    "longitude": 113.81666666666666
+  },
+  "KALIPARE, MALANG": {
+    "latitude": -8.205,
+    "longitude": 112.42500000000001
+  },
+  "SUKOWONO, JEMBER": {
+    "latitude": -8.08,
+    "longitude": 113.82
+  },
+  "MUMBULSARI, JEMBER": {
+    "latitude": -8.24,
+    "longitude": 113.75
+  },
+  "MEJAYAN, MADIUN": {
+    "latitude": -7.32,
+    "longitude": 112.4
+  },
+  "JATIBANTENG, SITUBONDO": {
+    "latitude": -7.84,
+    "longitude": 113.68
+  },
+  "SANANKULON, BLITAR": {
+    "latitude": -8.106666666666667,
+    "longitude": 112.16000000000001
+  },
+  "KRUCIL, PROBOLINGGO": {
+    "latitude": -7.87,
+    "longitude": 113.42
+  },
+  "TEMAYANG, BOJONEGORO": {
+    "latitude": -7.336666666666667,
+    "longitude": 111.86
+  },
+  "MENGANTI, GRESIK": {
+    "latitude": -7.29,
+    "longitude": 112.56666666666666
+  },
+  "PITU, NGAWI": {
+    "latitude": -7.48,
+    "longitude": 111.4
+  },
+  "MANTUP, LAMONGAN": {
+    "latitude": -7.29,
+    "longitude": 112.34
+  },
+  "KWANYAR, BANGKALAN": {
+    "latitude": -7.12,
+    "longitude": 112.86500000000001
+  },
+  "GRUJUGAN, BONDOWOSO": {
+    "latitude": -7.9225,
+    "longitude": 113.3125
+  },
+  "AJUNG, JEMBER": {
+    "latitude": -8.23,
+    "longitude": 113.67
+  },
+  "BANCAR, TUBAN": {
+    "latitude": -6.795,
+    "longitude": 111.805
+  },
+  "CURAHDAMI, BONDOWOSO": {
+    "latitude": -7.9225,
+    "longitude": 113.785
+  },
+  "SUMBERWRINGIN, BONDOWOSO": {
+    "latitude": -7.96,
+    "longitude": 113.98
+  },
+  "KANDAT, KEDIRI": {
+    "latitude": -7.91,
+    "longitude": 112.03
+  },
+  "BALUNG, JEMBER": {
+    "latitude": -8.28,
+    "longitude": 113.54
+  },
+  "BANGOREJO, BANYUWANGI": {
+    "latitude": -8.48,
+    "longitude": 114.09
+  },
+  "SUGIO, LAMONGAN": {
+    "latitude": -7.15,
+    "longitude": 112.29
+  },
+  "TAMBAKREJO, BOJONEGORO": {
+    "latitude": -7.35,
+    "longitude": 111.56
+  },
+  "GENENG, NGAWI": {
+    "latitude": -7.5,
+    "longitude": 111.41
+  },
+  "AROSBAYA, BANGKALAN": {
+    "latitude": -6.96,
+    "longitude": 112.82
+  },
+  "WONOSARI, MALANG": {
+    "latitude": -7.98,
+    "longitude": 110.55
+  },
+  "TAMANAN, BONDOWOSO": {
+    "latitude": -8.04,
+    "longitude": 113.84
+  },
+  "NGIMBANG, LAMONGAN": {
+    "latitude": -7.21,
+    "longitude": 112.37
+  },
+  "WONOREJO, PASURUAN": {
+    "latitude": -7.800000000000001,
+    "longitude": 112.82
+  },
+  "UJUNGPANGKAH, GRESIK": {
+    "latitude": -6.95,
+    "longitude": 112.545
+  },
+  "SEMBORO, JEMBER": {
+    "latitude": -8.17,
+    "longitude": 113.42
+  },
+  "BANYAKAN, KEDIRI": {
+    "latitude": -7.78,
+    "longitude": 111.945
+  },
+  "LEMBEYAN, MAGETAN": {
+    "latitude": -7.75,
+    "longitude": 111.36
+  },
+  "TEMPUREJO, JEMBER": {
+    "latitude": -8.38,
+    "longitude": 113.60333333333334
+  },
+  "SUMBERSUKO, LUMAJANG": {
+    "latitude": -8.15,
+    "longitude": 113.17
+  },
+  "LENTENG, SUMENEP": {
+    "latitude": -7.04,
+    "longitude": 113.75999999999999
+  },
+  "DEKET, LAMONGAN": {
+    "latitude": -7.12,
+    "longitude": 112.44
+  },
+  "PRAGAAN, SUMENEP": {
+    "latitude": -7.12,
+    "longitude": 113.61
+  },
+  "TULUNGAGUNG, TULUNGAGUNG": {
+    "latitude": -8.06,
+    "longitude": 111.9
+  },
+  "PAITON, PROBOLINGGO": {
+    "latitude": -7.73,
+    "longitude": 113.47
+  },
+  "BARENG, JOMBANG": {
+    "latitude": -7.66,
+    "longitude": 112.31
+  },
+  "MARON, PROBOLINGGO": {
+    "latitude": -7.86,
+    "longitude": 113.36
+  },
+  "SEKARAN, LAMONGAN": {
+    "latitude": -7.07,
+    "longitude": 112.26
+  },
+  "BATUAN, SUMENEP": {
+    "latitude": -7.04,
+    "longitude": 113.82
+  },
+  "GAMPENGREJO, KEDIRI": {
+    "latitude": -7.78,
+    "longitude": 112.03
+  },
+  "AMBUNTEN, SUMENEP": {
+    "latitude": -6.88,
+    "longitude": 113.74
+  },
+  "BADAS, KEDIRI": {
+    "latitude": -7.75,
+    "longitude": 112.21
+  },
+  "PLOSOKLATEN, KEDIRI": {
+    "latitude": -7.86,
+    "longitude": 112.15
+  },
+  "NGETOS, NGANJUK": {
+    "latitude": -7.77,
+    "longitude": 111.83
+  },
+  "DONOMULYO, MALANG": {
+    "latitude": -8.31,
+    "longitude": 112.34
+  },
+  "PATIANROWO, NGANJUK": {
+    "latitude": -7.53,
+    "longitude": 112.1
+  },
+  "PRAMBON, NGANJUK": {
+    "latitude": -7.76,
+    "longitude": 112.01
+  }
+}

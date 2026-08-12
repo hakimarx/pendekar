@@ -1,0 +1,65 @@
+[
+    {
+        "nama": "Pondok Pesantren Modern Al-Amanah Junwangi",
+        "alamat": "Jl. Raya Junwangi No. 43, RT 09/RW 03, Desa Junwangi, Kecamatan Krian, Sidoarjo, Jawa Timur 61262",
+        "latitude": -7.387428,
+        "longitude": 112.576214,
+        "program_ramah_anak": "Tim Husada Cilik & Husada Santri (kesehatan/sanitasi), Sanggar Literasi & Seni, peringatan Hari Anak Nasional, Cek Kesehatan Gratis & Layanan Mental.",
+        "integrasi_kurikulum": "Terintegrasi dalam kegiatan ekstrakurikuler, pendidikan kesehatan harian, dan sanggar literasi secara berkala.",
+        "dampak_karakter": "Mengembangkan kepedulian sosial, kesadaran kebersihan diri/lingkungan, jiwa kepemimpinan, serta kecakapan literasi santri."
+    },
+    {
+        "nama": "Pondok Pesantren Darul Ulum",
+        "alamat": "Jl. Rejoso No. 36, Desa Rejoso, Kecamatan Peterongan, Jombang, Jawa Timur 61481",
+        "latitude": -7.545802,
+        "longitude": 112.281134,
+        "program_ramah_anak": "Pilot project PRA tingkat provinsi, penerapan pilar pengawasan & keterbukaan, jaminan pemenuhan hak santri (minat bakat, sehat, kasih sayang).",
+        "integrasi_kurikulum": "Terintegrasi dalam kurikulum formal Madrasah (materi akhlakul karimah, saling menyayangi, toleransi) dan pedoman harian kehidupan asrama.",
+        "dampak_karakter": "Menumbuhkan sikap saling menghormati, toleransi tinggi, meminimalisir kekerasan fisik/verbal (bullying), serta kemandirian santri."
+    },
+    {
+        "nama": "Pondok Pesantren Nurul Jadid",
+        "alamat": "Jl. KH. Zaini Mun'im, Dusun Tanjung Lor, Desa Karanganyar, Kecamatan Paiton, Probolinggo, Jawa Timur 67291",
+        "latitude": -7.771221,
+        "longitude": 113.504245,
+        "program_ramah_anak": "Formula Disiplin Positif (mengganti hukuman fisik/verbal dengan sanksi edukatif & dialog), Qudwah Leadership Camp & TOT Capacity Building Pengurus Ramah Santri (LKP, BK, Kamtib), kerjasama Lembaga Perlindungan Anak (LPA) (edukasi anti-bullying, perlindungan diri, literasi digital).",
+        "integrasi_kurikulum": "Terintegrasi dalam modul pelatihan berkala pengurus asrama/keamanan serta materi kepemimpinan santri.",
+        "dampak_karakter": "Meningkatkan kedewasaan emosional santri, disiplin diri berbasis kesadaran tanpa rasa takut, dan hubungan antar-santri yang sehat dan aman."
+    },
+    {
+        "nama": "Pondok Pesantren Al-Qodiri 1",
+        "alamat": "Jl. Manggar No. 139A, Kelurahan Gebang, Kecamatan Patrang, Jember, Jawa Timur 68117",
+        "latitude": -8.151121,
+        "longitude": 113.709212,
+        "program_ramah_anak": "Pilot project PRA Kemenag, Sosialisasi MPLS Ramah Anak berkolaborasi dengan Dinsos PPPA Jember, edukasi pencegahan bullying & pernikahan dini dengan melibatkan orang tua.",
+        "integrasi_kurikulum": "Dimasukkan ke dalam materi Masa Pengenalan Lingkungan Sekolah (MPLS) dan seminar parenting berkala dengan wali santri.",
+        "dampak_karakter": "Memperkuat pemahaman tentang keselamatan diri, pencegahan kekerasan, serta komunikasi yang sehat dan terbuka dengan orang tua."
+    },
+    {
+        "nama": "Pondok Pesantren Al-Hayatul Islamiyah",
+        "alamat": "Jl. KH. Malik Dalam No. 01, RT 01 RW 04, Kelurahan Kedungkandang, Kecamatan Kedungkandang, Kota Malang, Jawa Timur 65137",
+        "latitude": -7.9942,
+        "longitude": 112.6568,
+        "program_ramah_anak": "Deklarasi Pesantren Ramah Anak pertama di Malang, pembentukan satgas internal perlindungan anak, kampanye stop-bullying harian.",
+        "integrasi_kurikulum": "Diintegrasikan ke dalam kurikulum pengajian kitab akhlak (pembiasaan sopan santun) dan penyuluhan psikologis santri.",
+        "dampak_karakter": "Menumbuhkan empati tinggi antar-santri, menghilangkan senioritas negatif, dan menciptakan kedekatan harmonis santri-ustadz."
+    },
+    {
+        "nama": "Pondok Pesantren Darun Nun",
+        "alamat": "Perum Bukit Cemara Tidar F3, No. 4, Karangbesuki, Kecamatan Sukun, Kota Malang, Jawa Timur 65146",
+        "latitude": -7.9542,
+        "longitude": 112.5978,
+        "program_ramah_anak": "Ditetapkan resmi sebagai Pondok Pesantren Ramah Anak melalui SK Kemenag Kota Malang, pemenuhan hak tumbuh kembang anak, bimbingan konseling santri.",
+        "integrasi_kurikulum": "Metode pembelajaran terapan ramah anak serta muatan moderasi beragama dalam sistem asrama.",
+        "dampak_karakter": "Membentuk santri dengan cara berpikir terbuka, toleran, mandiri secara emosional, dan santun."
+    },
+    {
+        "nama": "Pondok Pesantren Imam Asy-Syafi'i (PPIA)",
+        "alamat": "Jl. KH. Hasyim Asy'ari No. 99E, Dusun Krajan, Desa Kembiritan, Kecamatan Genteng, Kabupaten Banyuwangi, Jawa Timur 68465",
+        "latitude": -8.3712,
+        "longitude": 114.1685,
+        "program_ramah_anak": "Menerapkan sistem asrama ramah anak, edukasi pencegahan kekerasan fisik/verbal, pembatasan ketat kontak fisik keras dalam pendisiplinan.",
+        "integrasi_kurikulum": "Integrasi ke dalam etika kehidupan asrama harian dan kurikulum kajian akhlak aswaja.",
+        "dampak_karakter": "Meningkatkan kontrol emosi santri, etika berbicara yang santun, dan menghilangkan budaya kekerasan di kalangan santri."
+    }
+]

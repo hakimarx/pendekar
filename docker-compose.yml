@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  pendekar-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pendekar_laravel_app
+    restart: always
+    ports:
+      - "9000:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - APP_NAME=PENDEKAR
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_URL=http://localhost:9000

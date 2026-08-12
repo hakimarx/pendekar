@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENDEKAR - Portal Integrasi Data Pesantren Jawa Timur</title>
+
+    <!-- Google Fonts: Outfit for Headings, Inter for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Leaflet MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+
+    <!-- Top Header -->
+    <header class="app-header">
+        <div class="logo-area">
+            <div class="logo-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+            </div>
+            <div class="logo-text">
+                <h1>PENDEKAR</h1>
+                <p>Portal Integrasi Data Pesantren Jawa Timur</p>
+            </div>
+        </div>
+        <div class="tagline">
+            <span><strong>P</strong>esantren</span> •
+            <span><strong>EN</strong>terpreneur</span> •
+            <span><strong>D</strong>igital</span> •
+            <span><strong>E</strong>coteologi</span> •
+            <span><strong>K</strong>arya Kitab</span> •
+            <span><strong>A</strong>man</span> •
+            <span><strong>R</strong>amah</span>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+
+        <!-- Left Column: Filters & List -->
+        <section class="control-panel">
+
+            <!-- Statistics Section -->
+            <div class="stats-grid">
+                <div class="stat-card total">
+                    <span class="stat-title">Total Pesantren</span>
+                    <span class="stat-val" id="stat-total">-</span>
+                </div>
+                <div class="stat-card dig">
+                    <span class="stat-title">Digital</span>
+                    <span class="stat-val" id="stat-dig">-</span>
+                </div>
+                <div class="stat-card eco">
+                    <span class="stat-title">Ecoteologi</span>
+                    <span class="stat-val" id="stat-eco">-</span>
+                </div>
+                <div class="stat-card ramah">
+                    <span class="stat-title">Ramah Anak</span>
+                    <span class="stat-val" id="stat-ramah">-</span>
+                </div>
+                <div class="stat-card opop">
+                    <span class="stat-title">Enterpreneur</span>
+                    <span class="stat-val" id="stat-opop">-</span>
+                </div>
+                <div class="stat-card kitab">
+                    <span class="stat-title">Karya Kitab</span>
+                    <span class="stat-val" id="stat-kitab">-</span>
+                </div>
+            </div>
+
+            <!-- Advanced Filters -->
+            <div class="filter-section card">
+                <h2>Pencarian & Penyaringan</h2>
+
+                <div class="input-group">
+                    <label for="search-input">Cari Pesantren / NSPP / Produk</label>
+                    <input type="text" id="search-input" placeholder="Masukkan nama pesantren, NSPP, atau produk...">
+                </div>
+
+                <div class="filter-row">
+                    <div class="input-group half">
+                        <label for="filter-kabupaten">Kabupaten / Kota</label>
+                        <select id="filter-kabupaten">
+                            <option value="">Semua Wilayah</option>
+                        </select>
+                    </div>
+                    <div class="input-group half">
+                        <label for="filter-kerawanan">Level Kerawanan</label>
+                        <select id="filter-kerawanan">
+                            <option value="">Semua Level</option>
+                            <option value="SANGAT TINGGI">Sangat Tinggi</option>
+                            <option value="TINGGI">Tinggi</option>
+                            <option value="SEDANG">Sedang</option>
+                            <option value="RENDAH">Rendah</option>
+                            <option value="TIDAK ADA RIWAYAT BENCANA">Aman (Tidak Ada Riwayat)</option>
+                            <option value="TIDAK ADA DATA KOORDINAT">Tanpa Koordinat</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="group-label">Pillar Pendekar Unggulan</label>
+                    <div class="checkbox-options">
+                        <label class="checkbox-btn">
+                            <input type="checkbox" id="chk-digital">
+                            <span>Digital</span>
+                        </label>
+                        <label class="checkbox-btn">
+                            <input type="checkbox" id="chk-eco">
+                            <span>Ecoteologi</span>
+                        </label>
+                        <label class="checkbox-btn">
+                            <input type="checkbox" id="chk-ramah">
+                            <span>Ramah Anak</span>
+                        </label>
+                        <label class="checkbox-btn">
+                            <input type="checkbox" id="chk-opop">
+                            <span>Enterpreneur (OPOP)</span>
+                        </label>
+                        <label class="checkbox-btn">
+                            <input type="checkbox" id="chk-kitab">
+                            <span>Karya Kitab</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button id="btn-reset-filters" class="btn btn-secondary">Atur Ulang Filter</button>
+            </div>
+
+            <!-- Pesantren List View -->
+            <div class="list-section card">
+                <div class="list-header">
+                    <h2>Daftar Pesantren</h2>
+                    <span class="count-badge" id="list-count">0 Ditemukan</span>
+                </div>
+
+                <div class="list-scroll" id="pesantren-list">
+                    <!-- Items injected dynamically -->
+                    <div class="loading-spinner">Memuat data...</div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="pagination-controls">
+                    <button class="btn btn-nav" id="btn-prev" disabled>&lt; Sebelum</button>
+                    <span class="page-info" id="page-info">Halaman 1 dari 1</span>
+                    <button class="btn btn-nav" id="btn-next" disabled>Sesudah &gt;</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Right Column: Map & Analytics -->
+        <section class="visual-panel">
+
+            <!-- Map Container Card -->
+            <div class="map-card card">
+                <div class="map-header">
+                    <h2>Peta Persebaran & Kerawanan Bencana</h2>
+                    <div class="map-legend">
+                        <span class="legend-item"><span class="dot st"></span> Sangat Tinggi</span>
+                        <span class="legend-item"><span class="dot t"></span> Tinggi</span>
+                        <span class="legend-item"><span class="dot sd"></span> Sedang</span>
+                        <span class="legend-item"><span class="dot r"></span> Rendah</span>
+                        <span class="legend-item"><span class="dot a"></span> Aman</span>
+                    </div>
+                </div>
+                <div id="map"></div>
+            </div>
+
+            <!-- Charts & Insights -->
+            <div class="charts-card card">
+                <div class="charts-header">
+                    <h2>Statistik & Analitik Wilayah</h2>
+                    <div class="chart-tabs">
+                        <button class="tab-btn active" data-chart="risk">Distribusi Risiko</button>
+                        <button class="tab-btn" data-chart="afiliasi">Afiliasi Ormas</button>
+                    </div>
+                </div>
+                <div class="chart-content">
+                    <canvas id="chart-canvas"></canvas>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Detailed Modal View -->
+    <div class="modal-overlay" id="detail-modal">
+        <div class="modal-card">
+            <button class="close-btn" id="modal-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-body" id="modal-body-content">
+                <!-- Data injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet Map JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Leaflet MarkerCluster JS -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+    <!-- Custom Application Logic -->
+    <script src="app.js"></script>
+</body>
+
+</html>
