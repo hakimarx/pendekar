@@ -68,16 +68,23 @@ class PendataanController
 
         $detailsJson = json_encode($details);
 
+        $alamat = $_POST['alamat'] ?? '';
+        $latitude = $_POST['latitude'] ?? null;
+        $longitude = $_POST['longitude'] ?? null;
+
         // Insert into database
         try {
             $pdo = \App\Database::getInstance()->getConnection();
-            $stmt = $pdo->prepare("INSERT INTO submissions (nama_pesantren, nspp, kabupaten, kategori, details, status) VALUES (:nama_pesantren, :nspp, :kabupaten, :kategori, :details, 'pending')");
+            $stmt = $pdo->prepare("INSERT INTO submissions (nama_pesantren, nspp, kabupaten, kategori, details, status, alamat, latitude, longitude) VALUES (:nama_pesantren, :nspp, :kabupaten, :kategori, :details, 'pending', :alamat, :latitude, :longitude)");
             $stmt->execute([
                 ':nama_pesantren' => $namaPesantren,
                 ':nspp' => $nspp,
                 ':kabupaten' => $kabupaten,
                 ':kategori' => $kategori,
-                ':details' => $detailsJson
+                ':details' => $detailsJson,
+                ':alamat' => $alamat,
+                ':latitude' => $latitude !== '' ? (float)$latitude : null,
+                ':longitude' => $longitude !== '' ? (float)$longitude : null
             ]);
 
             $successMessage = "Data pendataan untuk '{$namaPesantren}' berhasil dikirim dan menunggu verifikasi!";

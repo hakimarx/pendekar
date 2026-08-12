@@ -55,7 +55,7 @@
                         <li><a href="/admin" style="color: #10B981;"><i class="fas fa-lock-open"></i> Admin</a></li>
                     <?php endif; ?>
                     <li><a href="/verifikator" style="color: #FCA311;"><i class="fas fa-clipboard-check"></i> Verifikasi</a></li>
-                    <li><a href="/change-password" style="color: #60A5FA;"><i class="fas fa-key"></i> Ubah Password</a></li>
+                    <li><a href="/settings" style="color: #60A5FA;"><i class="fas fa-cog"></i> Pengaturan</a></li>
                     <li><a href="/logout" style="color: #EF4444;"><i class="fas fa-right-from-bracket"></i> Keluar</a></li>
                 <?php else: ?>
                     <li><a href="/login" style="color: #E2E8F0; background-color: #2D5D7C; padding: 5px 12px; border-radius: 4px;"><i class="fas fa-right-to-bracket"></i> Login</a></li>

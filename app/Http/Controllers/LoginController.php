@@ -60,19 +60,19 @@ class LoginController
         exit;
     }
 
-    public function changePasswordForm()
+    public function settingsForm()
     {
         if (!isset($_SESSION['user_id'])) {
             header('Location: /login?info=' . urlencode('Silakan login terlebih dahulu.'));
             exit;
         }
 
-        return $this->renderView('change_password', [
-            'pageTitle' => 'Ubah Password | PENDEKAR'
+        return $this->renderView('settings', [
+            'pageTitle' => 'Pengaturan Akun | PENDEKAR'
         ]);
     }
 
-    public function changePassword()
+    public function updateSettings()
     {
         if (!isset($_SESSION['user_id'])) {
             header('Location: /login?info=' . urlencode('Silakan login terlebih dahulu.'));
@@ -84,22 +84,22 @@ class LoginController
         $confirmPassword = $_POST['confirm_password'] ?? '';
 
         if (empty($oldPassword) || empty($newPassword) || empty($confirmPassword)) {
-            return $this->renderView('change_password', [
-                'pageTitle' => 'Ubah Password | PENDEKAR',
+            return $this->renderView('settings', [
+                'pageTitle' => 'Pengaturan Akun | PENDEKAR',
                 'error' => 'Semua kolom wajib diisi.'
             ]);
         }
 
         if ($newPassword !== $confirmPassword) {
-            return $this->renderView('change_password', [
-                'pageTitle' => 'Ubah Password | PENDEKAR',
+            return $this->renderView('settings', [
+                'pageTitle' => 'Pengaturan Akun | PENDEKAR',
                 'error' => 'Konfirmasi password baru tidak cocok.'
             ]);
         }
 
         if (strlen($newPassword) < 6) {
-            return $this->renderView('change_password', [
-                'pageTitle' => 'Ubah Password | PENDEKAR',
+            return $this->renderView('settings', [
+                'pageTitle' => 'Pengaturan Akun | PENDEKAR',
                 'error' => 'Password baru minimal 6 karakter.'
             ]);
         }
@@ -117,19 +117,19 @@ class LoginController
                     ':id' => $_SESSION['user_id']
                 ]);
 
-                return $this->renderView('change_password', [
-                    'pageTitle' => 'Ubah Password | PENDEKAR',
+                return $this->renderView('settings', [
+                    'pageTitle' => 'Pengaturan Akun | PENDEKAR',
                     'success' => 'Password Anda berhasil diubah!'
                 ]);
             } else {
-                return $this->renderView('change_password', [
-                    'pageTitle' => 'Ubah Password | PENDEKAR',
+                return $this->renderView('settings', [
+                    'pageTitle' => 'Pengaturan Akun | PENDEKAR',
                     'error' => 'Password saat ini salah.'
                 ]);
             }
         } catch (\PDOException $e) {
-            return $this->renderView('change_password', [
-                'pageTitle' => 'Ubah Password | PENDEKAR',
+            return $this->renderView('settings', [
+                'pageTitle' => 'Pengaturan Akun | PENDEKAR',
                 'error' => 'Kesalahan database: ' . $e->getMessage()
             ]);
         }

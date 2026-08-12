@@ -71,6 +71,7 @@
                                     <th style="padding: 10px; color: #334155; font-weight: 600;">Pesantren</th>
                                     <th style="padding: 10px; color: #334155; font-weight: 600;">Kategori</th>
                                     <th style="padding: 10px; color: #334155; font-weight: 600;">Status</th>
+                                    <th style="padding: 10px; color: #334155; font-weight: 600; text-align: center;">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -100,6 +101,11 @@
                                             <span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; background-color: <?php echo $statusBg; ?>; color: <?php echo $statusColor; ?>;">
                                                 <?php echo $statusText; ?>
                                             </span>
+                                        </td>
+                                        <td style="padding: 12px 10px; text-align: center;">
+                                            <a href="/admin/edit?id=<?php echo $row['id']; ?>" class="btn-primary" style="background-color: #3B82F6; border-color: #3B82F6; padding: 4px 10px; font-size: 0.75rem; text-decoration: none; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px;">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

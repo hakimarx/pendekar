@@ -63,6 +63,17 @@ class Database
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )");
 
+        // Add additional columns dynamically if they don't exist
+        try {
+            $this->pdo->exec("ALTER TABLE submissions ADD COLUMN alamat TEXT");
+        } catch (\PDOException $e) {}
+        try {
+            $this->pdo->exec("ALTER TABLE submissions ADD COLUMN latitude REAL");
+        } catch (\PDOException $e) {}
+        try {
+            $this->pdo->exec("ALTER TABLE submissions ADD COLUMN longitude REAL");
+        } catch (\PDOException $e) {}
+
         // Seed default users if table is empty
         $stmt = $this->pdo->query("SELECT COUNT(*) FROM users");
         $count = $stmt->fetchColumn();
