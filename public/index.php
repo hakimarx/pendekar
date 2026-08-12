@@ -100,6 +100,14 @@ switch ($uri) {
         $controller = new App\Http\Controllers\LoginController();
         $controller->logout();
         break;
+    case '/change-password':
+        $controller = new App\Http\Controllers\LoginController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->changePassword();
+        } else {
+            $controller->changePasswordForm();
+        }
+        break;
     case '/verifikator':
         $controller = new App\Http\Controllers\VerifikatorController();
         $controller->index();

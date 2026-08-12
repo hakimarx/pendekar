@@ -60,6 +60,81 @@ class LoginController
         exit;
     }
 
+    public function changePasswordForm()
+    {
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /login?info=' . urlencode('Silakan login terlebih dahulu.'));
+            exit;
+        }
+
+        return $this->renderView('change_password', [
+            'pageTitle' => 'Ubah Password | PENDEKAR'
+        ]);
+    }
+
+    public function changePassword()
+    {
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /login?info=' . urlencode('Silakan login terlebih dahulu.'));
+            exit;
+        }
+
+        $oldPassword = $_POST['old_password'] ?? '';
+        $newPassword = $_POST['new_password'] ?? '';
+        $confirmPassword = $_POST['confirm_password'] ?? '';
+
+        if (empty($oldPassword) || empty($newPassword) || empty($confirmPassword)) {
+            return $this->renderView('change_password', [
+                'pageTitle' => 'Ubah Password | PENDEKAR',
+                'error' => 'Semua kolom wajib diisi.'
+            ]);
+        }
+
+        if ($newPassword !== $confirmPassword) {
+            return $this->renderView('change_password', [
+                'pageTitle' => 'Ubah Password | PENDEKAR',
+                'error' => 'Konfirmasi password baru tidak cocok.'
+            ]);
+        }
+
+        if (strlen($newPassword) < 6) {
+            return $this->renderView('change_password', [
+                'pageTitle' => 'Ubah Password | PENDEKAR',
+                'error' => 'Password baru minimal 6 karakter.'
+            ]);
+        }
+
+        try {
+            $pdo = \App\Database::getInstance()->getConnection();
+            $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+            $stmt->execute([':id' => $_SESSION['user_id']]);
+            $user = $stmt->fetch();
+
+            if ($user && password_verify($oldPassword, $user['password'])) {
+                $updateStmt = $pdo->prepare("UPDATE users SET password = :password WHERE id = :id");
+                $updateStmt->execute([
+                    ':password' => password_hash($newPassword, PASSWORD_BCRYPT),
+                    ':id' => $_SESSION['user_id']
+                ]);
+
+                return $this->renderView('change_password', [
+                    'pageTitle' => 'Ubah Password | PENDEKAR',
+                    'success' => 'Password Anda berhasil diubah!'
+                ]);
+            } else {
+                return $this->renderView('change_password', [
+                    'pageTitle' => 'Ubah Password | PENDEKAR',
+                    'error' => 'Password saat ini salah.'
+                ]);
+            }
+        } catch (\PDOException $e) {
+            return $this->renderView('change_password', [
+                'pageTitle' => 'Ubah Password | PENDEKAR',
+                'error' => 'Kesalahan database: ' . $e->getMessage()
+            ]);
+        }
+    }
+
     private function redirectByRole($role)
     {
         if ($role === 'admin') {
