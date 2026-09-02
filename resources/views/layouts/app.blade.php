@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; <?php echo date('Y'); ?> PD Pontren Kanwil Jatim. | Developed by hakim.luk81@gmail.com</p>
+                <p>&copy; <?php echo date('Y'); ?> PD Pontren Kanwil Jatim.</p>
                 <p style="margin-top: 10px; font-size: 0.85rem; color: #a0aec0;">Peringatan: Data yang terdapat pada situs ini hanya sebagai informasi saja dan dapat berubah sewaktu-waktu, berhati-hatilah untuk tidak menggunakan data ini sebagai referensi.</p>
             </div>
         </div>
