@@ -25,7 +25,7 @@
                 </div>
             <?php endif; ?>
 
-            <form action="/login" method="POST">
+            <form action="<?php echo url('/login'); ?>" method="POST">
                 <div class="form-group" style="margin-bottom: 20px;">
                     <label for="username" style="display: block; font-weight: 600; margin-bottom: 8px; color: #2D5D7C;">Username</label>
                     <input type="text" id="username" name="username" class="form-control" required placeholder="Masukkan username Anda" style="width: 100%; padding: 10px 14px; border: 1px solid #CBD5E1; border-radius: 6px; box-sizing: border-box;">

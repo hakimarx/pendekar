@@ -57,7 +57,8 @@ function initMap() {
 
 async function loadPesantrenData() {
     try {
-        const response = await fetch('/api/pesantren');
+        const apiBase = (window.APP_BASE_URL || '').replace(/\/$/, '');
+        const response = await fetch(`${apiBase}/api/pesantren`);
         if (response.ok) {
             const data = await response.json();
             const fetched = Array.isArray(data) ? data : (data.data || []);

@@ -9,20 +9,63 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
     require __DIR__ . '/../vendor/autoload.php';
 }
 
+// Dynamically determine base URL path (e.g. '/1' or '' if running at root)
+$scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
+if ($scriptDir === '/' || $scriptDir === '.') {
+    $basePath = '';
+} else {
+    $basePath = rtrim($scriptDir, '/');
+}
+// Normalize if running directly inside public
+if (str_ends_with($basePath, '/public')) {
+    $basePath = substr($basePath, 0, -7);
+}
+
+if (!defined('APP_BASE_URL')) {
+    define('APP_BASE_URL', $basePath);
+}
+
+if (!function_exists('url')) {
+    function url(string $path = ''): string {
+        $p = '/' . ltrim($path, '/');
+        if ($p === '/') {
+            return APP_BASE_URL ?: '/';
+        }
+        return APP_BASE_URL . $p;
+    }
+}
+
 // Require database
 require_once __DIR__ . '/../app/Database.php';
 \App\Database::getInstance();
 
-// Basic Routing Engine for Laravel App Structure
-$uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+// Parse Request URI
+$requestUri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+$route = $requestUri;
+
+// Strip APP_BASE_URL from request URI to get clean route
+if (!empty(APP_BASE_URL) && str_starts_with($route, APP_BASE_URL)) {
+    $route = substr($route, strlen(APP_BASE_URL));
+}
+// Strip /public if present
+if (str_starts_with($route, '/public')) {
+    $route = substr($route, 7);
+}
+$route = '/' . ltrim($route, '/');
+if (strlen($route) > 1) {
+    $route = rtrim($route, '/');
+}
 
 // Serve static assets if exists
-$publicFile = __DIR__ . $uri;
-if ($uri !== '/' && file_exists($publicFile) && !is_dir($publicFile)) {
+$publicFile = __DIR__ . $route;
+if ($route !== '/' && file_exists($publicFile) && !is_dir($publicFile)) {
     $mime = mime_content_type($publicFile);
     if (str_ends_with($publicFile, '.css')) $mime = 'text/css';
     if (str_ends_with($publicFile, '.js')) $mime = 'application/javascript';
     if (str_ends_with($publicFile, '.json')) $mime = 'application/json';
+    if (str_ends_with($publicFile, '.png')) $mime = 'image/png';
+    if (str_ends_with($publicFile, '.jpg') || str_ends_with($publicFile, '.jpeg')) $mime = 'image/jpeg';
+    if (str_ends_with($publicFile, '.svg')) $mime = 'image/svg+xml';
     header("Content-Type: $mime");
     readfile($publicFile);
     exit;
@@ -37,7 +80,7 @@ require_once __DIR__ . '/../app/Http/Controllers/VerifikatorController.php';
 require_once __DIR__ . '/../app/Http/Controllers/AdminController.php';
 
 // Route Definitions and Execution
-switch ($uri) {
+switch ($route) {
     case '/':
     case '/index.php':
         $controller = new App\Http\Controllers\DashboardController();

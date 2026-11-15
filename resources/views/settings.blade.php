@@ -42,7 +42,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="/settings" method="POST">
+                <form action="<?php echo url('/settings'); ?>" method="POST">
                     <div class="form-group" style="margin-bottom: 18px;">
                         <label for="old_password" style="display: block; font-weight: 600; margin-bottom: 8px; color: #2D5D7C; font-size: 0.9rem;">Password Saat Ini</label>
                         <input type="password" id="old_password" name="old_password" class="form-control" required placeholder="Masukkan password saat ini" style="width: 100%; padding: 10px 14px; border: 1px solid #CBD5E1; border-radius: 6px; box-sizing: border-box;">

@@ -27,13 +27,16 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- App Theme Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo url('/assets/css/style.css'); ?>">
+    <script>
+        window.APP_BASE_URL = "<?php echo APP_BASE_URL; ?>";
+    </script>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container navbar-container">
-            <a href="/" class="logo">
+            <a href="<?php echo url('/'); ?>" class="logo">
                 <div class="logo-icon-box">
                     <i class="fas fa-book-quran"></i>
                 </div>
@@ -42,23 +45,23 @@
                 </div>
             </a>
             <ul class="nav-menu">
-                <li><a href="/#home">Beranda</a></li>
-                <li><a href="/rekap/pesantren"><b style="font-size: 1.3em; color: #FCA311;">P</b>esantren</a></li>
-                <li><a href="/rekap/produk"><b style="font-size: 1.3em; color: #FCA311;">EN</b>trepreneur</a></li>
-                <li><a href="/rekap/digital"><b style="font-size: 1.3em; color: #FCA311;">D</b>igital</a></li>
-                <li><a href="/rekap/ecoteologi"><b style="font-size: 1.3em; color: #FCA311;">E</b>coteologi</a></li>
-                <li><a href="/rekap/kitab"><b style="font-size: 1.3em; color: #FCA311;">K</b>arya</a></li>
-                <li><a href="/rekap/bencana"><b style="font-size: 1.3em; color: #FCA311;">A</b>man</a></li>
-                <li><a href="/rekap/ramah"><b style="font-size: 1.3em; color: #FCA311;">R</b>amah</a></li>
+                <li><a href="<?php echo url('/'); ?>#home">Beranda</a></li>
+                <li><a href="<?php echo url('/rekap/pesantren'); ?>"><b style="font-size: 1.3em; color: #FCA311;">P</b>esantren</a></li>
+                <li><a href="<?php echo url('/rekap/produk'); ?>"><b style="font-size: 1.3em; color: #FCA311;">EN</b>trepreneur</a></li>
+                <li><a href="<?php echo url('/rekap/digital'); ?>"><b style="font-size: 1.3em; color: #FCA311;">D</b>igital</a></li>
+                <li><a href="<?php echo url('/rekap/ecoteologi'); ?>"><b style="font-size: 1.3em; color: #FCA311;">E</b>coteologi</a></li>
+                <li><a href="<?php echo url('/rekap/kitab'); ?>"><b style="font-size: 1.3em; color: #FCA311;">K</b>arya</a></li>
+                <li><a href="<?php echo url('/rekap/bencana'); ?>"><b style="font-size: 1.3em; color: #FCA311;">A</b>man</a></li>
+                <li><a href="<?php echo url('/rekap/ramah'); ?>"><b style="font-size: 1.3em; color: #FCA311;">R</b>amah</a></li>
                 <?php if (isset($_SESSION['role'])): ?>
                     <?php if ($_SESSION['role'] === 'admin'): ?>
-                        <li><a href="/admin" style="color: #10B981;"><i class="fas fa-lock-open"></i> Admin</a></li>
+                        <li><a href="<?php echo url('/admin'); ?>" style="color: #10B981;"><i class="fas fa-lock-open"></i> Admin</a></li>
                     <?php endif; ?>
-                    <li><a href="/verifikator" style="color: #FCA311;"><i class="fas fa-clipboard-check"></i> Verifikasi</a></li>
-                    <li><a href="/settings" style="color: #60A5FA;"><i class="fas fa-cog"></i> Pengaturan</a></li>
-                    <li><a href="/logout" style="color: #EF4444;"><i class="fas fa-right-from-bracket"></i> Keluar</a></li>
+                    <li><a href="<?php echo url('/verifikator'); ?>" style="color: #FCA311;"><i class="fas fa-clipboard-check"></i> Verifikasi</a></li>
+                    <li><a href="<?php echo url('/settings'); ?>" style="color: #60A5FA;"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                    <li><a href="<?php echo url('/logout'); ?>" style="color: #EF4444;"><i class="fas fa-right-from-bracket"></i> Keluar</a></li>
                 <?php else: ?>
-                    <li><a href="/login" style="color: #E2E8F0; background-color: #2D5D7C; padding: 5px 12px; border-radius: 4px;"><i class="fas fa-right-to-bracket"></i> Login</a></li>
+                    <li><a href="<?php echo url('/login'); ?>" style="color: #E2E8F0; background-color: #2D5D7C; padding: 5px 12px; border-radius: 4px;"><i class="fas fa-right-to-bracket"></i> Login</a></li>
                 <?php endif; ?>
             </ul>
         </div>
@@ -82,18 +85,18 @@
                 <div class="footer-links">
                     <h3>Integrasi Data</h3>
                     <ul>
-                        <li><a href="/rekap/pesantren">Data Pesantren Jatim</a></li>
-                        <li><a href="/rekap/bencana">Risiko & Kerawanan Bencana</a></li>
-                        <li><a href="/rekap/ramah">Pesantren Ramah Anak</a></li>
-                        <li><a href="/rekap/ecoteologi">Program Ecoteologi</a></li>
+                        <li><a href="<?php echo url('/rekap/pesantren'); ?>">Data Pesantren Jatim</a></li>
+                        <li><a href="<?php echo url('/rekap/bencana'); ?>">Risiko & Kerawanan Bencana</a></li>
+                        <li><a href="<?php echo url('/rekap/ramah'); ?>">Pesantren Ramah Anak</a></li>
+                        <li><a href="<?php echo url('/rekap/ecoteologi'); ?>">Program Ecoteologi</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h3>Layanan & Rekap</h3>
                     <ul>
-                        <li><a href="/pendataan">Isi Pendataan Baru</a></li>
-                        <li><a href="/rekap/produk">Data Produk Santri (OPOP)</a></li>
-                        <li><a href="/rekap/kitab">Data Karya / Kitab Pesantren</a></li>
+                        <li><a href="<?php echo url('/pendataan'); ?>">Isi Pendataan Baru</a></li>
+                        <li><a href="<?php echo url('/rekap/produk'); ?>">Data Produk Santri (OPOP)</a></li>
+                        <li><a href="<?php echo url('/rekap/kitab'); ?>">Data Karya / Kitab Pesantren</a></li>
                     </ul>
                 </div>
             </div>
@@ -229,6 +232,6 @@
     <!-- Leaflet JS & App JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-    <script src="/assets/js/app.js"></script>
+    <script src="<?php echo url('/assets/js/app.js'); ?>"></script>
 </body>
 </html>

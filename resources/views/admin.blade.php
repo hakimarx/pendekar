@@ -9,13 +9,13 @@
                 <p style="color: #64748B; margin: 5px 0 0 0; font-size: 0.95rem;">Selamat datang, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong> (<?php echo htmlspecialchars($_SESSION['role']); ?>)</p>
             </div>
             <div style="display: flex; gap: 10px;">
-                <a href="/admin/create" class="btn-primary" style="background-color: #2D5D7C; border-color: #2D5D7C; padding: 10px 20px; font-size: 0.9rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px; color: white;">
+                <a href="<?php echo url('/admin/create'); ?>" class="btn-primary" style="background-color: #2D5D7C; border-color: #2D5D7C; padding: 10px 20px; font-size: 0.9rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px; color: white;">
                     <i class="fas fa-plus"></i> Tambah Data Baru
                 </a>
-                <a href="/verifikator" class="btn-primary" style="background-color: #10B981; border-color: #10B981; padding: 10px 20px; font-size: 0.9rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px;">
+                <a href="<?php echo url('/verifikator'); ?>" class="btn-primary" style="background-color: #10B981; border-color: #10B981; padding: 10px 20px; font-size: 0.9rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px;">
                     <i class="fas fa-clipboard-list"></i> Halaman Verifikasi
                 </a>
-                <a href="/logout" class="btn-primary" style="background-color: #EF4444; border-color: #EF4444; padding: 10px 20px; font-size: 0.9rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px;">
+                <a href="<?php echo url('/logout'); ?>" class="btn-primary" style="background-color: #EF4444; border-color: #EF4444; padding: 10px 20px; font-size: 0.9rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px;">
                     <i class="fas fa-right-from-bracket"></i> Keluar / Logout
                 </a>
             </div>
@@ -106,10 +106,10 @@
                                             </span>
                                         </td>
                                         <td style="padding: 12px 10px; text-align: center; white-space: nowrap;">
-                                            <a href="/admin/edit?id=<?php echo $row['id']; ?>" class="btn-primary" style="background-color: #3B82F6; border-color: #3B82F6; padding: 4px 10px; font-size: 0.75rem; text-decoration: none; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px;">
+                                            <a href="<?php echo url('/admin/edit'); ?>?id=<?php echo $row['id']; ?>" class="btn-primary" style="background-color: #3B82F6; border-color: #3B82F6; padding: 4px 10px; font-size: 0.75rem; text-decoration: none; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px;">
                                                 <i class="fas fa-edit"></i> Edit
                                             </a>
-                                            <form action="/admin/delete" method="POST" style="display: inline-block; margin-left: 5px;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data pengajuan ini?');">
+                                            <form action="<?php echo url('/admin/delete'); ?>" method="POST" style="display: inline-block; margin-left: 5px;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data pengajuan ini?');">
                                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                                 <button type="submit" class="btn-primary" style="background-color: #EF4444; border-color: #EF4444; padding: 4px 10px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; border: none; color: white;">
                                                     <i class="fas fa-trash"></i> Hapus
@@ -162,7 +162,7 @@
                 <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #E2E8F0; margin-bottom: 25px;">
                     <h3 style="color: #2D5D7C; margin-top: 0; margin-bottom: 20px; font-size: 1.25rem;">Daftarkan User Baru</h3>
                     
-                    <form action="/admin/users" method="POST">
+                    <form action="<?php echo url('/admin/users'); ?>" method="POST">
                         <div style="margin-bottom: 15px;">
                             <label for="reg-username" style="display: block; font-weight: 600; margin-bottom: 6px; color: #475569; font-size: 0.85rem;">Username</label>
                             <input type="text" id="reg-username" name="username" required placeholder="Contoh: verifikator2" style="width: 100%; padding: 8px 12px; border: 1px solid #CBD5E1; border-radius: 6px; box-sizing: border-box; font-size: 0.85rem;">

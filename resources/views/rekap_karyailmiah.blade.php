@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+﻿<?php ob_start(); ?>
 
 <section style="padding: 60px 0; background-color: #F8FAFC;">
     <div class="container">
@@ -15,9 +15,9 @@
                         Total: <?php echo number_format($paginated['totalRecords'] ?? 0); ?> Karya/Kitab
                     </span>
                     <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-                        <a href="/admin/create" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambah Karya/Kitab</a>
+                        <a href="<?php echo url('/admin/create'); ?>" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambah Karya/Kitab</a>
                     <?php else: ?>
-                        <a href="/pendataan?kategori=karya" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambah Karya/Kitab</a>
+                        <a href="<?php echo url('/pendataan'); ?>?kategori=karya" class="btn-primary" style="padding: 8px 18px; font-size: 0.88rem;"><i class="fas fa-plus"></i> Tambah Karya/Kitab</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -97,10 +97,10 @@
                                     </td>
                                     <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                                         <td style="white-space: nowrap;">
-                                            <a href="/admin/edit?id=<?php echo $item['id']; ?>" class="btn-primary" style="background-color: #3B82F6; border-color: #3B82F6; padding: 4px 8px; font-size: 0.75rem; text-decoration: none; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px;">
+                                            <a href="<?php echo url('/admin/edit'); ?>?id=<?php echo $item['id']; ?>" class="btn-primary" style="background-color: #3B82F6; border-color: #3B82F6; padding: 4px 8px; font-size: 0.75rem; text-decoration: none; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px;">
                                                 <i class="fas fa-edit"></i> Edit
                                             </a>
-                                            <form action="/admin/delete" method="POST" style="display: inline-block; margin-left: 5px;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                            <form action="<?php echo url('/admin/delete'); ?>" method="POST" style="display: inline-block; margin-left: 5px;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
                                                 <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
                                                 <button type="submit" class="btn-primary" style="background-color: #EF4444; border-color: #EF4444; padding: 4px 8px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; border: none; color: white;">
                                                     <i class="fas fa-trash"></i> Hapus

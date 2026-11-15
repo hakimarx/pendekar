@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace App\Http\Controllers;
 
@@ -8,7 +8,7 @@ class VerifikatorController
     {
         // Authenticate verifikator or admin role
         if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'verifikator' && $_SESSION['role'] !== 'admin')) {
-            header('Location: /login?info=' . urlencode('Akses dibatasi. Silakan login terlebih dahulu.'));
+            header('Location: ' . url('/login?info=' . urlencode('Akses dibatasi. Silakan login terlebih dahulu.'));
             exit;
         }
     }
@@ -35,13 +35,13 @@ class VerifikatorController
     public function approve()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: /verifikator');
+            header('Location: ' . url('/verifikator'));
             exit;
         }
 
         $id = $_POST['id'] ?? '';
         if (empty($id)) {
-            header('Location: /verifikator');
+            header('Location: ' . url('/verifikator'));
             exit;
         }
 
@@ -55,7 +55,7 @@ class VerifikatorController
 
             if (!$sub) {
                 $_SESSION['flash_error'] = "Data pendataan tidak ditemukan atau sudah diproses.";
-                header('Location: /verifikator');
+                header('Location: ' . url('/verifikator'));
                 exit;
             }
 
@@ -71,20 +71,20 @@ class VerifikatorController
             $_SESSION['flash_error'] = "Terjadi kesalahan database: " . $e->getMessage();
         }
 
-        header('Location: /verifikator');
+        header('Location: ' . url('/verifikator'));
         exit;
     }
 
     public function reject()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: /verifikator');
+            header('Location: ' . url('/verifikator'));
             exit;
         }
 
         $id = $_POST['id'] ?? '';
         if (empty($id)) {
-            header('Location: /verifikator');
+            header('Location: ' . url('/verifikator'));
             exit;
         }
 
@@ -98,7 +98,7 @@ class VerifikatorController
             $_SESSION['flash_error'] = "Gagal memproses penolakan: " . $e->getMessage();
         }
 
-        header('Location: /verifikator');
+        header('Location: ' . url('/verifikator'));
         exit;
     }
 

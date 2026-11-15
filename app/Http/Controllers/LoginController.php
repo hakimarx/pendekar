@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace App\Http\Controllers;
 
@@ -56,14 +56,14 @@ class LoginController
     public function logout()
     {
         session_destroy();
-        header('Location: /');
+        header('Location: ' . url('/'));
         exit;
     }
 
     public function settingsForm()
     {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /login?info=' . urlencode('Silakan login terlebih dahulu.'));
+            header('Location: ' . url('/login?info=' . urlencode('Silakan login terlebih dahulu.'));
             exit;
         }
 
@@ -75,7 +75,7 @@ class LoginController
     public function updateSettings()
     {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /login?info=' . urlencode('Silakan login terlebih dahulu.'));
+            header('Location: ' . url('/login?info=' . urlencode('Silakan login terlebih dahulu.'));
             exit;
         }
 
@@ -138,9 +138,9 @@ class LoginController
     private function redirectByRole($role)
     {
         if ($role === 'admin') {
-            header('Location: /admin');
+            header('Location: ' . url('/admin'));
         } else {
-            header('Location: /verifikator');
+            header('Location: ' . url('/verifikator'));
         }
         exit;
     }

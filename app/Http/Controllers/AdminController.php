@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace App\Http\Controllers;
 
@@ -8,7 +8,7 @@ class AdminController
     {
         // Authenticate admin role
         if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-            header('Location: /login?info=' . urlencode('Akses dibatasi. Halaman ini memerlukan hak akses Admin.'));
+            header('Location: ' . url('/login?info=' . urlencode('Akses dibatasi. Halaman ini memerlukan hak akses Admin.'));
             exit;
         }
     }
@@ -70,7 +70,7 @@ class AdminController
     public function addUser()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: /admin');
+            header('Location: ' . url('/admin'));
             exit;
         }
 
@@ -80,7 +80,7 @@ class AdminController
 
         if (empty($username) || empty($password)) {
             $_SESSION['flash_error'] = "Username dan password wajib diisi.";
-            header('Location: /admin');
+            header('Location: ' . url('/admin'));
             exit;
         }
 
@@ -102,7 +102,7 @@ class AdminController
             }
         }
 
-        header('Location: /admin');
+        header('Location: ' . url('/admin'));
         exit;
     }
 
@@ -110,7 +110,7 @@ class AdminController
     {
         $id = $_GET['id'] ?? '';
         if (empty($id)) {
-            header('Location: /admin');
+            header('Location: ' . url('/admin'));
             exit;
         }
 
@@ -122,12 +122,12 @@ class AdminController
 
             if (!$submission) {
                 $_SESSION['flash_error'] = "Data pengajuan tidak ditemukan.";
-                header('Location: /admin');
+                header('Location: ' . url('/admin'));
                 exit;
             }
         } catch (\PDOException $e) {
             $_SESSION['flash_error'] = "Database error: " . $e->getMessage();
-            header('Location: /admin');
+            header('Location: ' . url('/admin'));
             exit;
         }
 
@@ -150,7 +150,7 @@ class AdminController
 
         if (empty($id) || empty($namaPesantren) || empty($nspp) || empty($kabupaten) || empty($kategori)) {
             $_SESSION['flash_error'] = "Semua field bertanda bintang (*) wajib diisi.";
-            header("Location: /admin/edit?id=" . urlencode($id));
+            header("Location: " . url('/admin/edit') . "?id=" . urlencode($id));
             exit;
         }
 
@@ -204,7 +204,7 @@ class AdminController
 
             if (!$oldSub) {
                 $_SESSION['flash_error'] = "Data tidak ditemukan.";
-                header('Location: /admin');
+                header('Location: ' . url('/admin'));
                 exit;
             }
 
@@ -280,11 +280,11 @@ class AdminController
             }
 
             $_SESSION['flash_success'] = "Data pengajuan berhasil diperbarui!";
-            header('Location: /admin');
+            header('Location: ' . url('/admin'));
             exit;
         } catch (\PDOException $e) {
             $_SESSION['flash_error'] = "Database error: " . $e->getMessage();
-            header("Location: /admin/edit?id=" . urlencode($id));
+            header("Location: " . url('/admin/edit') . "?id=" . urlencode($id));
             exit;
         }
     }
@@ -350,7 +350,7 @@ class AdminController
 
         if (empty($namaPesantren) || empty($nspp) || empty($kabupaten) || empty($kategori)) {
             $_SESSION['flash_error'] = "Semua field bertanda bintang (*) wajib diisi.";
-            header("Location: /admin/create");
+            header("Location: " . url('/admin/create'));
             exit;
         }
 
@@ -466,11 +466,11 @@ class AdminController
             ]);
 
             $_SESSION['flash_success'] = "Data baru berhasil ditambahkan dan langsung dipublikasikan!";
-            header('Location: /admin');
+            header('Location: ' . url('/admin'));
             exit;
         } catch (\PDOException $e) {
             $_SESSION['flash_error'] = "Database error: " . $e->getMessage();
-            header("Location: /admin/create");
+            header("Location: " . url('/admin/create'));
             exit;
         }
     }
@@ -479,7 +479,7 @@ class AdminController
     {
         $id = $_POST['id'] ?? '';
         if (empty($id)) {
-            header('Location: /admin');
+            header('Location: ' . url('/admin'));
             exit;
         }
 
@@ -493,7 +493,7 @@ class AdminController
 
             if (!$sub) {
                 $_SESSION['flash_error'] = "Data tidak ditemukan.";
-                header('Location: /admin');
+                header('Location: ' . url('/admin'));
                 exit;
             }
 
@@ -511,7 +511,7 @@ class AdminController
             $_SESSION['flash_error'] = "Gagal menghapus data: " . $e->getMessage();
         }
 
-        header('Location: /admin');
+        header('Location: ' . url('/admin'));
         exit;
     }
 

@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Prevent directory listing
+    Options -Indexes
+
+    # Block access to sensitive directories and files
+    RewriteRule ^(\.git|\.env|database|bootstrap|storage|app|resources|routes)(/.*)?$ - [F,L,NC]
+    RewriteRule \.(sqlite|env|pem|sh|bat|md|json|yml|yaml|log)$ - [F,L,NC]
+
+    # Directly serve static assets from public/assets and public/data if present
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
+    RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
+    RewriteRule ^data/(.*)$ public/data/$1 [L]
+
+    # Send all other requests to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>

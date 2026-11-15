@@ -9,7 +9,7 @@
                 <p style="color: #64748B; margin: 5px 0 0 0; font-size: 0.95rem;">Selamat datang, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong> (<?php echo htmlspecialchars($_SESSION['role']); ?>)</p>
             </div>
             <div>
-                <a href="/logout" class="btn-primary" style="background-color: #EF4444; border-color: #EF4444; padding: 10px 20px; font-size: 0.9rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px;">
+                <a href="<?php echo url('/logout'); ?>" class="btn-primary" style="background-color: #EF4444; border-color: #EF4444; padding: 10px 20px; font-size: 0.9rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px;">
                     <i class="fas fa-right-from-bracket"></i> Keluar / Logout
                 </a>
             </div>
@@ -103,7 +103,7 @@
                                     <td style="padding: 15px; text-align: center;">
                                         <div style="display: flex; gap: 8px; justify-content: center;">
                                             <!-- Approve Form -->
-                                            <form action="/verifikator/approve" method="POST" onsubmit="return confirm('Apakah Anda yakin menyetujui pendataan ini?');">
+                                            <form action="<?php echo url('/verifikator/approve'); ?>" method="POST" onsubmit="return confirm('Apakah Anda yakin menyetujui pendataan ini?');">
                                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                                 <button type="submit" style="background-color: #10B981; border: none; color: white; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
                                                     <i class="fas fa-check"></i> Setujui
@@ -111,7 +111,7 @@
                                             </form>
                                             
                                             <!-- Reject Form -->
-                                            <form action="/verifikator/reject" method="POST" onsubmit="return confirm('Apakah Anda yakin menolak pendataan ini?');">
+                                            <form action="<?php echo url('/verifikator/reject'); ?>" method="POST" onsubmit="return confirm('Apakah Anda yakin menolak pendataan ini?');">
                                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                                 <button type="submit" style="background-color: #EF4444; border: none; color: white; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
                                                     <i class="fas fa-xmark"></i> Tolak

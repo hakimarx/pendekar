@@ -21,7 +21,7 @@
         <?php endif; ?>
 
         <div style="background: white; border-radius: 12px; padding: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #E2E8F0;">
-            <form action="/pendataan" method="POST">
+            <form action="<?php echo url('/pendataan'); ?>" method="POST">
                 <div class="form-group" style="margin-bottom: 20px;">
                     <label for="nama_pesantren" style="display: block; font-weight: 600; margin-bottom: 8px; color: #2D5D7C;">Nama Pesantren <span style="color: red;">*</span></label>
                     <input type="text" id="nama_pesantren" name="nama_pesantren" class="form-control" required placeholder="Contoh: PP. Lirboyo">

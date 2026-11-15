@@ -8,14 +8,14 @@
                 <p style="color: #64748B; margin: 5px 0 0 0; font-size: 0.9rem;">Menambahkan data pesantren langsung ke dalam map & direktori</p>
             </div>
             <div>
-                <a href="/admin" class="btn-primary" style="background-color: #64748B; border-color: #64748B; padding: 8px 16px; font-size: 0.85rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px;">
+                <a href="<?php echo url('/admin'); ?>" class="btn-primary" style="background-color: #64748B; border-color: #64748B; padding: 8px 16px; font-size: 0.85rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px;">
                     <i class="fas fa-arrow-left"></i> Kembali
                 </a>
             </div>
         </div>
 
         <div style="background: white; border-radius: 12px; padding: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #E2E8F0;">
-            <form action="/admin/create" method="POST">
+            <form action="<?php echo url('/admin/create'); ?>" method="POST">
                 <div class="form-group" style="margin-bottom: 20px;">
                     <label for="nama_pesantren" style="display: block; font-weight: 600; margin-bottom: 8px; color: #2D5D7C;">Nama Pesantren <span style="color: red;">*</span></label>
                     <input type="text" id="nama_pesantren" name="nama_pesantren" class="form-control" required placeholder="Contoh: PP. Lirboyo" style="width: 100%; padding: 10px 14px; border: 1px solid #CBD5E1; border-radius: 6px; box-sizing: border-box;">

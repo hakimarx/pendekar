@@ -13,7 +13,7 @@
 
             </div>
             <div class="hero-image-container" style="display: flex; justify-content: center; align-items: flex-end; height: 100%;">
-                <img src="/assets/images/p_imam.png" alt="Person" style="max-height: 100%; max-width: 100%; object-fit: contain; drop-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                <img src="<?php echo url('/assets/images/p_imam.png'); ?>" alt="Person" style="max-height: 100%; max-width: 100%; object-fit: contain; drop-shadow: 0 10px 20px rgba(0,0,0,0.1);">
             </div>
         </div>
     </div>

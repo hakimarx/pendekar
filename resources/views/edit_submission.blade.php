@@ -11,14 +11,14 @@ $details = json_decode($sub['details'], true) ?: [];
                 <p style="color: #64748B; margin: 5px 0 0 0; font-size: 0.9rem;">Perbarui data pendataan untuk: <strong><?php echo htmlspecialchars($sub['nama_pesantren']); ?></strong></p>
             </div>
             <div>
-                <a href="/admin" class="btn-primary" style="background-color: #64748B; border-color: #64748B; padding: 8px 16px; font-size: 0.85rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px;">
+                <a href="<?php echo url('/admin'); ?>" class="btn-primary" style="background-color: #64748B; border-color: #64748B; padding: 8px 16px; font-size: 0.85rem; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px;">
                     <i class="fas fa-arrow-left"></i> Kembali
                 </a>
             </div>
         </div>
 
         <div style="background: white; border-radius: 12px; padding: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #E2E8F0;">
-            <form action="/admin/edit" method="POST">
+            <form action="<?php echo url('/admin/edit'); ?>" method="POST">
                 <input type="hidden" name="id" value="<?php echo $sub['id']; ?>">
 
                 <div class="form-group" style="margin-bottom: 20px;">
