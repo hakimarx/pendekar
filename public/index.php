@@ -10,6 +10,39 @@ if (session_status() === PHP_SESSION_NONE) {
 
 define('LARAVEL_START', microtime(true));
 
+// Auto-repair Linux permissions if needed
+if (!function_exists('autoFixPermissions')) {
+    function autoFixPermissions($path) {
+        if (!file_exists($path)) return;
+        if (is_dir($path)) {
+            @chmod($path, 0755);
+            $dh = @opendir($path);
+            if ($dh) {
+                while (($file = readdir($dh)) !== false) {
+                    if ($file === '.' || $file === '..') continue;
+                    autoFixPermissions($path . '/' . $file);
+                }
+                closedir($dh);
+            }
+        } else {
+            @chmod($path, 0644);
+        }
+    }
+}
+
+if (!is_readable(__DIR__ . '/../app/Http/Controllers/DashboardController.php')) {
+    autoFixPermissions(__DIR__ . '/../app');
+    autoFixPermissions(__DIR__ . '/../bootstrap');
+    autoFixPermissions(__DIR__ . '/../database');
+    autoFixPermissions(__DIR__ . '/../public');
+    autoFixPermissions(__DIR__ . '/../resources');
+    autoFixPermissions(__DIR__ . '/../routes');
+    @chmod(__DIR__ . '/../database', 0775);
+    if (file_exists(__DIR__ . '/../database/database.sqlite')) {
+        @chmod(__DIR__ . '/../database/database.sqlite', 0664);
+    }
+}
+
 // Auto-loader helper if vendor is present or manual fallback
 if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
     require __DIR__ . '/../vendor/autoload.php';
