@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -63,7 +63,7 @@ class LoginController
     public function settingsForm()
     {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: ' . url('/login?info=' . urlencode('Silakan login terlebih dahulu.'));
+            header('Location: ' . url('/login?info=' . urlencode('Silakan login terlebih dahulu.')));
             exit;
         }
 
@@ -75,7 +75,7 @@ class LoginController
     public function updateSettings()
     {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: ' . url('/login?info=' . urlencode('Silakan login terlebih dahulu.'));
+            header('Location: ' . url('/login?info=' . urlencode('Silakan login terlebih dahulu.')));
             exit;
         }
 

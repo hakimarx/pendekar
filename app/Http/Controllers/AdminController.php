@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -8,7 +8,7 @@ class AdminController
     {
         // Authenticate admin role
         if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-            header('Location: ' . url('/login?info=' . urlencode('Akses dibatasi. Halaman ini memerlukan hak akses Admin.'));
+            header('Location: ' . url('/login?info=' . urlencode('Akses dibatasi. Halaman ini memerlukan hak akses Admin.')));
             exit;
         }
     }

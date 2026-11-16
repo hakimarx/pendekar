@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -8,7 +8,7 @@ class VerifikatorController
     {
         // Authenticate verifikator or admin role
         if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'verifikator' && $_SESSION['role'] !== 'admin')) {
-            header('Location: ' . url('/login?info=' . urlencode('Akses dibatasi. Silakan login terlebih dahulu.'));
+            header('Location: ' . url('/login?info=' . urlencode('Akses dibatasi. Silakan login terlebih dahulu.')));
             exit;
         }
     }
