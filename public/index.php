@@ -1,6 +1,12 @@
 <?php
 
-session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 define('LARAVEL_START', microtime(true));
 
@@ -35,9 +41,8 @@ if (!function_exists('url')) {
     }
 }
 
-// Require database
+// Require database class (lazy loaded on demand)
 require_once __DIR__ . '/../app/Database.php';
-\App\Database::getInstance();
 
 // Parse Request URI
 $requestUri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
@@ -56,17 +61,30 @@ if (strlen($route) > 1) {
     $route = rtrim($route, '/');
 }
 
+// Helper to get MIME type safely without depending on ext/fileinfo
+function getStaticMimeType(string $file): string {
+    $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+    $mimes = [
+        'css'   => 'text/css',
+        'js'    => 'application/javascript',
+        'json'  => 'application/json',
+        'png'   => 'image/png',
+        'jpg'   => 'image/jpeg',
+        'jpeg'  => 'image/jpeg',
+        'gif'   => 'image/gif',
+        'svg'   => 'image/svg+xml',
+        'ico'   => 'image/x-icon',
+        'woff'  => 'font/woff',
+        'woff2' => 'font/woff2',
+        'ttf'   => 'font/ttf'
+    ];
+    return $mimes[$ext] ?? 'application/octet-stream';
+}
+
 // Serve static assets if exists
 $publicFile = __DIR__ . $route;
 if ($route !== '/' && file_exists($publicFile) && !is_dir($publicFile)) {
-    $mime = mime_content_type($publicFile);
-    if (str_ends_with($publicFile, '.css')) $mime = 'text/css';
-    if (str_ends_with($publicFile, '.js')) $mime = 'application/javascript';
-    if (str_ends_with($publicFile, '.json')) $mime = 'application/json';
-    if (str_ends_with($publicFile, '.png')) $mime = 'image/png';
-    if (str_ends_with($publicFile, '.jpg') || str_ends_with($publicFile, '.jpeg')) $mime = 'image/jpeg';
-    if (str_ends_with($publicFile, '.svg')) $mime = 'image/svg+xml';
-    header("Content-Type: $mime");
+    header("Content-Type: " . getStaticMimeType($publicFile));
     readfile($publicFile);
     exit;
 }

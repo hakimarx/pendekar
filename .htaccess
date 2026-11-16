@@ -1,5 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteBase /1/
 
     # Prevent directory listing
     Options -Indexes
@@ -9,13 +10,12 @@
     RewriteRule \.(sqlite|env|pem|sh|bat|md|json|yml|yaml|log)$ - [F,L,NC]
 
     # Directly serve static assets from public/assets and public/data if present
-    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
+    RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^assets/(.*)$ public/assets/$1 [L]
-    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
+    RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^data/(.*)$ public/data/$1 [L]
 
     # Send all other requests to index.php
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^ index.php [L]
+    RewriteRule ^(.*)$ index.php [L,QSA]
 </IfModule>
